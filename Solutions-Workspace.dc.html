@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="theme-light.css">
+<script src="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/_ds_bundle.js"></script>
+<script>document.documentElement.dataset.lang = localStorage.getItem('lcp-lang') || 'en';</script>
+<style>
+html[data-lang="en"] [data-l="es"], html[data-lang="es"] [data-l="en"] { display: none !important; }
+body { margin: 0; text-wrap: pretty;
+  background:
+    radial-gradient(900px 520px at 88% -120px, var(--tint-lilac), transparent 62%),
+    radial-gradient(760px 520px at -6% 6%, var(--tint-peach), transparent 58%),
+    var(--color-bg);
+  background-attachment: fixed; }
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-300); }
+@media (max-width: 900px) {
+  [data-two] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+
+/* Mobile & tablet only: the intro paragraph right under the H1 is set
+   larger (18px/19px) than the rest of the page's body copy (16.5px).
+   Match it to the body size below 1024px only; desktop keeps its larger
+   intro exactly as it is. Scoped to <header> so it can't touch the eyebrow
+   tag chips or the H1 itself — the intro <p> is the only <p> in there. */
+@media (max-width: 1024px) {
+  header p, header p * { font-size: 16.5px !important; }
+}
+
+/* --- responsive: neutralise fixed pixel sizes from direct edits --- */
+@media (max-width: 1024px) {
+  img, video, iframe { max-width: 100% !important; }
+  h1, h2, h3, h4, p, figcaption, h1 span, h2 span, h3 span, h4 span, p span, figcaption span {
+    width: auto !important; height: auto !important; white-space: normal !important;
+  }
+  [data-two], [data-mosaic], header, section, footer { width: auto !important; height: auto !important; max-width: 100% !important; }
+  .nav { flex-wrap: wrap; row-gap: 8px; }
+}
+/* Mobile nav sizing — identical in English and Spanish. The Spanish labels
+   run longer than their English counterparts, so these sizes/paddings are
+   tuned to fit the longer Spanish text; English, being shorter, fits the
+   same boxes with room to spare. Same font-size for both languages at every
+   width means the bar never looks mismatched when the language is toggled. */
+@media (max-width: 640px) {
+  .nav { flex-wrap: nowrap !important; row-gap: 0 !important; gap: 6px !important; padding-left: 12px !important; padding-right: 12px !important; }
+  .nav .nav-brand { font-size: 14.5px !important; white-space: nowrap !important; flex: 0 0 auto !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 11.8px !important; padding: 6px 7px !important; white-space: nowrap !important; }
+  .nav .btn { font-size: 11.8px !important; padding: 6px 9px !important; white-space: nowrap !important; }
+}
+@media (max-width: 430px) {
+  .nav { gap: 4px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .nav .nav-brand { font-size: 12.4px !important; white-space: nowrap !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 10px !important; padding: 5px 5px !important; }
+  .nav .btn { font-size: 10px !important; padding: 6px 6px !important; }
+}
+@media (max-width: 370px) {
+  .nav { gap: 3px !important; padding-left: 7px !important; padding-right: 7px !important; }
+  .nav .nav-brand { font-size: 11px !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 9px !important; padding: 4px 4px !important; }
+  .nav .btn { font-size: 9px !important; padding: 5px 4px !important; }
+}
+@media (max-width: 339px) {
+  .nav > a:not(.btn):not([href^="Home"]) { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  section div[style*="width: 200px"] { width: auto !important; height: auto !important; }
+  [data-two] figure img { width: 100% !important; }
+}
+
+/* Preview thumbnails on narrow screens ------------------------------------
+   These images are pinned to a fixed pixel height with object-fit: cover.
+   On a phone the column is much narrower than the box is tall, so "cover"
+   scales the image up and crops its sides away (up to ~67% of the width).
+   Release the height below 1024px so each one scales to its own aspect
+   ratio and shows in full, exactly like assets/roi-value-agent-v2.png,
+   which is already width:100% + height:auto. Desktop is left untouched. */
+@media (max-width: 1024px) {
+  figure img[src*="workspace-home---start-page---option-3"],
+  figure img[src*="315-mtdk01r2-boba"],
+  figure img[src*="design-system-mtdk0lgo-jf2q"],
+  figure img[src*="screenshot-2026-08-25-at-02-02-26"] {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  [data-two] > div > div[style*="width:"], [data-two] > div > div[style*="height:"] { width: auto !important; height: auto !important; }
+  image-slot, .sc-host-x, x-import { max-width: 100% !important; width: auto !important; }
+  [data-two] > * { min-width: 0 !important; }
+  figure { max-width: 100% !important; }
+}
+</style>
+</helmet>
+
+<div style="padding: 0 clamp(16px,4vw,32px);">
+  <nav class="nav" style="position: sticky; top: 0; z-index: 20;">
+    <a class="nav-brand" href="Home.dc.html" style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; letter-spacing: -.02em; font-size: 17px; color: var(--color-text);">Laura Carrión</a>
+    <a href="Home.dc.html"><span data-l="en">← All work</span><span data-l="es">← Todo el trabajo</span></a>
+    <button type="button" class="btn btn-ghost" onClick="{{ toggleLang }}" style="margin-left: auto;"><span data-l="en">ES</span><span data-l="es">EN</span></button>
+    <a class="btn btn-primary" href="mailto:laura.p.carrion92@gmail.com"><span data-l="en">Let's chat</span><span data-l="es">Hablemos</span></a>
+  </nav>
+</div>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+
+  <header style="padding: 96px 0 48px; width: 1085px; height: 438px">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+      <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Shipped · 35,000+ users</span><span data-l="es">En producción · +35.000 usuarios</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Enterprise UX</span><span data-l="es">UX enterprise</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Design system</span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en"><span style="color: color(srgb 0.0980392 0.0941176 0.137255 / 0.62);">Design System</span></span><span data-l="es">Design System</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Salesforce</span>
+    </div>
+    <h1 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 700; font-size: clamp(38px,4.6vw,62px); line-height: 1.06; letter-spacing: -.035em; margin: 0 0 26px;">Solutions Workspace</h1>
+    <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); max-width: 200ch; margin: 0 0 20px; width: 1090px; height: 89px">
+      
+      <span data-l="es" style="font-size: 18px; color: #535258">El hub interno de Salesforce para Solution Engineers y Account Executives. Una plataforma única donde tiene lugar la venta consultiva: calculadoras de ROI, Business Value Discovery, recursos para demos y, ahora, un asistente de Agentforce y Agent Value. He trabajado en el diseño de diferentes herramientas que componen esta gran plataforma, todas ellas construidas sobre un sistema de diseño compartido. Lideré el diseño de una familia de subproductos construidos sobre una misma base de diseño.</span><span data-l="en"><span style="color: rgb(88, 86, 92); font-size: 18px; width: 1089px; height: 118px; display: inline-block">Salesforce's internal hub for Solution Engineers and Account Executives. This is a single platform where consultive selling happen: calculadoras de ROI, Business Value Discovery, demo assets and, now, an Agentforce assistant and Agent Value. I have worked on the design of different tools that compos up this massive platform, all them based on a shared design system. El hub interno de Salesforce para Solution Engineers and Account Executives: el sitio donde ocurre la venta consultiva. Lideré el diseño de una familia de sub-productos construidos sobre un mismo design system.</span></span>
+    </p><div><br></div><font color="#191823"></font><p></p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px 40px; padding: 0 0 48px;">
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">My role</span><span data-l="es">Mi rol</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 18px; line-height: 26px; letter-spacing: -.02em; margin: 0;">Product Designer</p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Users</span><span data-l="es">Usuarios</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 18px; line-height: 26px; letter-spacing: -.02em; margin: 0;"><span data-l="en">35,000+ globally</span><span data-l="es">+35.000 en global</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Status</span><span data-l="es">Estado</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 18px; line-height: 26px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Shipped &amp; ongoing</span><span data-l="es">En producción y activo</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;">Timeline</p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 18px; line-height: 26px; letter-spacing: -.02em; margin: 0;">2020 – 2026</p>
+    </div>
+  </div>
+
+  <figure data-zoom="" style="margin: 0 0 88px; cursor: zoom-in;">
+    <div style="border-radius: 22px; overflow: hidden;">
+      <img src="./workspace-home---start-page---option-3-mtdk2b6t-stmf.png" alt="ROI Calculator" style="display: block; width: 100%; height: 660px; object-fit: cover; object-position: 0% 0">
+    </div>
+  </figure>
+
+  <section style="padding: 0 0 80px;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 20px;"><span data-l="en" style="color: #6558E6">Context</span><span data-l="es">Contexto</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 700; font-size: clamp(26px,3.2vw,40px); line-height: 1.12; letter-spacing: -.03em; margin: 0 0 26px; max-width: 22ch;"><span data-l="en" style="width: 676px; display: inline-block; height: 73px">Turnaround &amp; Unified Design Strategy for Solutions Workspace</span><span data-l="es">Una plataforma. Muchos productos. Un solo lenguaje de diseño.</span></h2>
+    <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); max-width: 62ch; margin: 0 0 20px;">
+      
+      <span data-l="es">Solutions Workspace no es un producto monolítico. Es un conjunto de herramientas que un vendedor abre la misma mañana: una herramienta de discovery para mapear la madurez del cliente, entornos de demo, contenido de readiness. Cada una con su brief, sus stakeholders y su ciclo de release.</span><span data-l="en">Solutions Workspace is the core internal platform where 30,000+ revenue roles, including Account Executives and Solution Engineers, prepare demos, discover content, and drive customer engagements.</span>
+    </p>
+    <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); max-width: 62ch; margin: 0;">
+      <span data-l="en">Facing declining adoption and fragmented user experiences across its suite of internal tools, the platform required a unified strategy to rebuild user trust.</span>
+      <span data-l="es">Lo que lo mantiene unido es el design system que ayudo a construir y mantengo en producción: paleta, tipografía y librería de componentes propias, independientes de Lightning. Ese sistema es la razón de que un vendedor que salta entre herramientas no note que ha cambiado de producto.</span>
+    </p>
+  </section>
+
+  <section style="padding: 0 0 88px;">
+    <div style="border-radius: 30px; background: rgba(255,255,255,.66); border: 1px solid var(--color-divider); padding: clamp(28px,3.4vw,44px); display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 36px;">
+      <div style="width: 200px; height: 101px">
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: clamp(32px,3vw,44px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 10px; font-feature-settings: 'tnum' 1;">35,000+</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0; width: 193px; height: 8px"><span data-l="en">Solution Engineers and sellers on the platform</span><span data-l="es">Solution Engineers y vendedores en la plataforma</span></p>
+      </div>
+      <div style="width: 200px">
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: clamp(32px,3vw,44px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 10px; font-feature-settings: 'tnum' 1; width: 200px">7+</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0; width: 200px"><span data-l="en">Products shipping on one shared language</span><span data-l="es">Equipos de producto lanzando sobre un mismo lenguaje</span></p>
+      </div>
+      <div style="width: 200px">
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: clamp(32px,3vw,44px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 10px; font-feature-settings: 'tnum' 1;">3+</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0;"><span data-l="en">Regions using the platform</span><span data-l="es">Años diseñando dentro del mismo ecosistema</span></p>
+      </div><div style="width: 200px">
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: clamp(32px,3vw,44px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 10px; font-feature-settings: 'tnum' 1;">1</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0;"><span data-l="en">Design System independent from Salesforce  Lightning</span><span data-l="es">Años diseñando dentro del mismo ecosistema</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 0 0 24px;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 20px;"><span data-l="en" style="color: #6558E6">Sub-projects</span><span data-l="es">Sub-proyectos</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 700; font-size: clamp(26px,3.2vw,40px); line-height: 1.12; letter-spacing: -.03em; margin: 0 0 22px; max-width: 24ch;"><span data-l="en">Many workstreams, one system</span><span data-l="es">Tres líneas de trabajo, un sistema</span></h2>
+    <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); max-width: 58ch; margin: 0;"><span data-l="en">Each one started as a separate brief. Read together, they are one argument about scaling a platform without scaling its surface area.</span><span data-l="es">Cada una empezó como un brief independiente. Leídas juntas, son un mismo argumento: escalar una plataforma sin escalar su superficie.</span></p>
+  </section>
+
+  <section style="padding: 40px 0 0;">
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 40px 0;">
+      <div>
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 14px; line-height: 22px; color: var(--color-accent); margin: 0 0 12px; font-feature-settings: 'tnum' 1;">01</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 25px; line-height: 32px; letter-spacing: -.025em; margin: 0 0 16px;"><span data-l="en">Business Value Discovery Tool</span><span data-l="es">Business Value Discovery — Value Map, home y filtros</span></h3>
+        <p style="font-size: 15.5px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 72%, transparent); margin: 0 0 20px;">
+          <span data-l="en">BVD was an outdated platform with significant usability limitations. The project aimed to redesign the tool so that salespeople could easily perform maturity assessments despite its complexity. I was part of this project, working on tasks such as designing the homepage, improving the Value Map's functionality, and creating intuitive filters so that salespeople could more easily understand the information and avoid frustration and leave the tool, which was common in the previous version.</span>
+          <span data-l="es">BVD era una herramienta obsoleta con deuda de usabilidad real, reconstruida para que un SE pudiera hacer una evaluación de madurez en self-service. Trabajé en el Value Map de la segunda versión —capability map, matriz de priorización y roadmap— además de la home y sus filtros, e integré la herramienta en Solutions Workspace para que dejara de ser un destino aparte.</span>
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Value Map</span><span data-l="es">Contribuidora y mantenedora</span></span>
+          
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Collaboration</span><span data-l="es">Colaboración</span></span><span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Dense data</span><span data-l="es">UI de alta densidad</span></span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <div style="border-radius: 16px; overflow: hidden;">
+          <img src="./315-mtdk01r2-boba.png" alt="ROI Calculator" style="display: block; width: 100%; height: 370px; object-fit: cover; object-position: 0% 0">
+        </div>
+      </figure>
+    </div>
+
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 40px 0;">
+      <div>
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 14px; line-height: 22px; color: var(--color-accent); margin: 0 0 12px; font-feature-settings: 'tnum' 1;">02</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 25px; line-height: 32px; letter-spacing: -.025em; margin: 0 0 16px;"><span data-l="en">The design system</span><span data-l="es">El design system</span></h3>
+        <p style="font-size: 15.5px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 72%, transparent); margin: 0 0 20px;">
+          <span data-l="en">The platform runs on its own design system, independent from Lightning and built for dense internal tools: colour and type carried as Figma variables, components with their states built in, accessibility rules treated as component properties, and written usage guidance plus Dev Mode handoff. I contribute to it and maintain it in production while four product teams keep shipping on top of it — answering their reasons to break the language with an extension rather than an exception.</span>
+          <span data-l="es">La plataforma funciona sobre su propio design system, independiente de Lightning y pensado para herramientas internas densas: color y tipografía como variables de Figma, componentes con sus estados incorporados, reglas de accesibilidad tratadas como propiedades del componente, y guías de uso escritas más handoff en Dev Mode. Contribuyo a él y lo mantengo en producción mientras cuatro equipos de producto siguen lanzando encima, respondiendo a sus motivos para romper el lenguaje con una extensión en lugar de una excepción.</span>
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Contributor &amp; maintainer</span><span data-l="es">Contribuidora y mantenedora</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Figma variables</span><span data-l="es">Variables de Figma</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Accessibility</span><span data-l="es">Accesibilidad</span></span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <div style="border-radius: 16px; overflow: hidden;">
+          <img src="./design-system-mtdk0lgo-jf2q.png" alt="ROI Calculator" style="display: block; width: 100%; height: 370px; object-fit: cover; object-position: 0% 0">
+        </div>
+      </figure>
+    </div>
+
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 40px 0 0;">
+      <div>
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 14px; line-height: 22px; color: var(--color-accent); margin: 0 0 12px; font-feature-settings: 'tnum' 1;">03</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 25px; line-height: 32px; letter-spacing: -.025em; margin: 0 0 16px;">Demo resources</h3>
+        <p style="font-size: 15.5px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 72%, transparent); margin: 0 0 20px;">
+          <span data-l="en">I designed multiple microsites that were added to this resource page for the Solution Engineers to use as inspiration and reuse. This ensures that the SEs' demos are up-to-date, follow Salesforce guidelines, and enhance the professionalism with which we work. This creates a "wow" factor for our potential clients and allows us to gather all the information on a single website instead of confusing them by sending different emails and files.</span>
+          <span data-l="es">Un Solution Engineer necesita el entorno de demo listo antes de la llamada con el cliente, no después. Diseñé las superficies donde esos recursos se encuentran, se entienden y se reutilizan: el modelo de navegación y filtros, la forma en que un recurso declara qué demuestra y qué necesita, y el camino de encontrarlo a ejecutarlo. Así la preparación deja de depender de saber a qué compañero preguntar.</span>
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Microsite</span><span data-l="es">Contribuidora y mantenedora</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Demo Experience Design</span><span data-l="es">Modelo de contenido</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Reuse</span><span data-l="es">Reutilización</span></span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <div style="border-radius: 16px; overflow: hidden">
+          
+        </div><img src="./screenshot-2026-08-25-at-02-02-26-mtdk14g7-vcni.png" alt="ROI Calculator" style="display: block; width: 100%; height: 370px; object-fit: cover; object-position: 0% 0; border-radius: 14px">
+      </figure>
+    </div>
+  </section>
+
+  <section style="padding: 88px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">Approach</span><span data-l="es">Enfoque</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 60px;"><span data-l="en">How I Drive Product Design at Scale</span><span data-l="es">Cómo lidero diseño de producto a escala</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px clamp(32px,5vw,72px);">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">01</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en" style="font-size: 21.5px">The designer as a strategic orchestrator</span><span data-l="es">La diseñadora como orquestadora estratégica</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">UX sits right at the center of execution. I align cross-functional partners with designers, POs, Devs, PMs, AEs, and RVPs, around a single unified product vision, ensuring everyone works toward the same objective with absolute clarity.</span><span data-l="es">La UX está justo en el centro de la ejecución. Alineo a partners cross-funcionales —diseñadores, POs, devs, PMs, AEs y RVPs— en torno a una única visión de producto, asegurando que todos trabajen hacia el mismo objetivo con absoluta claridad.</span></p>
+      </div>
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">02</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en" style="font-size: 21.5px">Optimized workflows for engineering velocity</span><span data-l="es">Flujos optimizados para la velocidad de ingeniería</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">Design isn't just about output; it's about team efficiency. Operating under aggressive timelines, I build clear, developer-ready assets and detailed specs to remove friction and accelerate engineering implementation.</span><span data-l="es">El diseño no va solo de entregables, va de eficiencia de equipo. Trabajando con plazos agresivos, construyo assets listos para desarrollo y especificaciones detalladas que eliminan fricción y aceleran la implementación.</span></p>
+      </div>
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">03</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en" style="width: 100%; display: inline-block; font-size: 21.5px">Translating domain complexity into technical clarity</span><span data-l="es">Traducir la complejidad del dominio en claridad técnica</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">I immerse myself in complex B2B software to master domain mechanics quickly. This allows me to bridge the gap between business needs and technical reality, translating intricate requirements into unambiguous blueprints for engineering teams.</span><span data-l="es">Me sumerjo en software B2B complejo para dominar rápido la mecánica del dominio. Eso me permite cerrar la brecha entre las necesidades de negocio y la realidad técnica, traduciendo requisitos intrincados en planos sin ambigüedad para los equipos de ingeniería.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 88px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 20px;"><span data-l="en" style="color: #6558E6">Key deliverables</span><span data-l="es">Entregables clave</span></p>
+    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+      <span class="tag tag-neutral" style="white-space: nowrap; flex: 0 0 auto;">Design system</span>
+      <span class="tag tag-neutral" style="white-space: nowrap; flex: 0 0 auto;">Business Value Discovery</span>
+      <span class="tag tag-neutral" style="white-space: nowrap; flex: 0 0 auto;">Demo resources</span>
+      <span class="tag tag-neutral" style="white-space: nowrap; flex: 0 0 auto;">Usability testing</span>
+      <span class="tag tag-neutral" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Implementation QA</span><span data-l="es">QA de implementación</span></span>
+      <span class="tag tag-neutral" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Mentoring graduates</span><span data-l="es">Mentoría a graduates</span></span>
+    </div>
+  </section>
+
+  <div style="height: 1px; margin: 88px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+  <footer style="padding: 44px 0 80px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;">
+    <a href="Home.dc.html" class="btn btn-ghost"><span data-l="en">← Back to all work</span><span data-l="es">← Volver a todo el trabajo</span></a>
+    <a href="Slack-Salesforce.dc.html" class="btn btn-primary"><span data-l="en">Next: Slack &amp; Salesforce →</span><span data-l="es">Siguiente: Slack y Salesforce →</span></a>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__lcpZoom) return;
+    window.__lcpZoom = true;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:4vmin;background:rgba(22,24,38,.86);backdrop-filter:blur(6px);cursor:zoom-out;';
+    const img = document.createElement('img');
+    img.style.cssText = 'max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.45);';
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    const close = () => { overlay.style.display = 'none'; img.src = ''; };
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    document.addEventListener('click', (e) => {
+      const fig = e.target.closest && e.target.closest('[data-zoom]');
+      if (!fig) return;
+      let src = (fig.querySelector('img') || {}).src;
+      if (!src) {
+        const host = fig.querySelector('image-slot') || fig.querySelector('*');
+        const root = host && host.shadowRoot;
+        src = ((root && root.querySelector('img')) || {}).src;
+      }
+      if (!src) return;
+      img.src = src;
+      overlay.style.display = 'flex';
+    });
+  }
+  renderVals() {
+    return {
+      toggleLang: () => {
+        const el = document.documentElement;
+        const next = el.dataset.lang === 'es' ? 'en' : 'es';
+        el.dataset.lang = next;
+        try { localStorage.setItem('lcp-lang', next); } catch (e) {}
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

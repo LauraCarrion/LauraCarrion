@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="theme-light.css">
+<script src="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/_ds_bundle.js"></script>
+<script>document.documentElement.dataset.lang = localStorage.getItem('lcp-lang') || 'en';</script>
+<style>
+html[data-lang="en"] [data-l="es"], html[data-lang="es"] [data-l="en"] { display: none !important; }
+body { margin: 0; text-wrap: pretty;
+  background:
+    radial-gradient(900px 520px at 88% -120px, var(--tint-lilac), transparent 62%),
+    radial-gradient(760px 520px at -6% 6%, var(--tint-peach), transparent 58%),
+    var(--color-bg);
+  background-attachment: fixed; }
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-300); }
+.work-card { transition: transform .25s ease, box-shadow .25s ease; }
+.work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+@media (max-width: 900px) {
+  [data-mosaic] { grid-template-columns: minmax(0, 1fr) !important; align-items: start !important; }
+  [data-mosaic] [data-tile] { display: block !important; }
+  [data-mosaic] [data-tile] > div[style*="flex: 1"] { display: block !important; }
+  footer > div { grid-template-columns: minmax(0, 1fr) !important; }
+  #words > div { grid-template-columns: minmax(0, 1fr) !important; align-items: start !important; }
+  #words > div > div { display: block !important; }
+  #words > div > div > div[style*="flex: 1"] { display: block !important; }
+  #words > div > div { grid-column: 1 / -1 !important; }
+  [data-mosaic] [data-tile] { grid-column: 1 / -1 !important; grid-row: auto !important; grid-template-columns: minmax(0, 1fr) !important; }
+}
+
+/* --- responsive: neutralise fixed pixel sizes from direct edits --- */
+@media (max-width: 1024px) {
+  img, video, iframe { max-width: 100% !important; }
+  h1, h2, h3, h4, p, figcaption, h1 span, h2 span, h3 span, h4 span, p span, figcaption span {
+    width: auto !important; height: auto !important; white-space: normal !important;
+  }
+  [data-two], [data-mosaic], header, section, footer { width: auto !important; height: auto !important; max-width: 100% !important; }
+  .nav { flex-wrap: wrap; row-gap: 8px; }
+}
+/* Mobile nav sizing — identical in English and Spanish. The Spanish labels
+   (Proyectos, Sobre mi, Hablemos) run longer than their English counterparts,
+   so these sizes/paddings are tuned to fit the longer Spanish text; English,
+   being shorter, fits the same boxes with room to spare. Same font-size for
+   both languages at every width means the bar never looks mismatched when
+   the language is toggled. */
+@media (max-width: 640px) {
+  .nav { flex-wrap: nowrap !important; row-gap: 0 !important; gap: 6px !important; padding-left: 12px !important; padding-right: 12px !important; }
+  .nav .nav-brand { font-size: 14.5px !important; white-space: nowrap !important; flex: 0 0 auto !important; }
+  .nav > a:not(.btn) { font-size: 11.8px !important; padding: 6px 7px !important; white-space: nowrap !important; }
+  .nav .btn { font-size: 11.8px !important; padding: 6px 9px !important; white-space: nowrap !important; }
+}
+@media (max-width: 430px) {
+  .nav { gap: 4px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .nav .nav-brand { font-size: 12.4px !important; white-space: nowrap !important; }
+  .nav > a:not(.btn) { font-size: 10px !important; padding: 5px 5px !important; }
+  .nav .btn { font-size: 10px !important; padding: 6px 6px !important; }
+}
+@media (max-width: 370px) {
+  .nav { gap: 3px !important; padding-left: 7px !important; padding-right: 7px !important; }
+  .nav .nav-brand { font-size: 11px !important; }
+  .nav > a:not(.btn) { font-size: 9px !important; padding: 4px 4px !important; }
+  .nav .btn { font-size: 9px !important; padding: 5px 4px !important; }
+}
+@media (max-width: 339px) {
+  .nav > a:not(.btn):not([href^="Home"]) { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  [data-mosaic] div[style*="width:"] { width: auto !important; }
+  [data-mosaic] div[style*="height:"] { height: auto !important; }
+  [data-mosaic] figure img { width: 100% !important; }
+  #about > div { grid-template-columns: minmax(0, 1fr) !important; }
+  header[style*="grid"] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  [data-mosaic] figure img { height: 240px !important; }
+}
+
+@media (max-width: 1024px) {
+  [data-two] > div > div[style*="width:"], [data-two] > div > div[style*="height:"] { width: auto !important; height: auto !important; }
+  image-slot, .sc-host-x, x-import { max-width: 100% !important; width: auto !important; }
+  [data-two] > * { min-width: 0 !important; }
+  figure { max-width: 100% !important; }
+}
+</style>
+<script>
+window.openCV = function (e) {
+  e.preventDefault();
+  var lang = document.documentElement.dataset.lang === 'es' ? 'ES' : 'EN';
+  var u = 'assets/Laura%20Carrion%20Perez%20-%20CV%20' + lang + '.pdf';
+  fetch(u).then(function (r) { return r.blob(); }).then(function (b) {
+    var o = URL.createObjectURL(new Blob([b], { type: 'application/pdf' }));
+    window.open(o, '_blank');
+  }).catch(function () { window.open(u, '_blank'); });
+  return false;
+};
+</script>
+</helmet>
+
+<div style="padding: 0 clamp(16px,4vw,32px);">
+  <nav class="nav" style="position: sticky; top: 0; z-index: 20;">
+    <span class="nav-brand" style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; letter-spacing: -.02em; font-size: 17px;">Laura Carrión</span>
+    <a href="#work"><span data-l="en">Work</span><span data-l="es">Proyectos</span></a>
+    <a href="#about"><span data-l="en">About</span><span data-l="es">Sobre mí</span></a>
+    <button type="button" class="btn btn-ghost" onClick="{{ toggleLang }}" style="margin-left: auto;"><span data-l="en">ES</span><span data-l="es">EN</span></button>
+    <a class="btn btn-primary" href="mailto:laura.p.carrion92@gmail.com"><span data-l="en">Let's chat</span><span data-l="es">Hablemos</span></a>
+  </nav>
+</div>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+
+  <header style="padding: 104px 0 88px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px clamp(32px,6vw,80px); align-items: center;">
+    <div>
+      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px; background: rgba(255,255,255,.72); border: 1px solid var(--color-divider); font-size: 13px; line-height: 16px; margin-bottom: 32px;">
+        <span style="width: 7px; height: 7px; border-radius: 999px; background: rgb(63, 169, 122);"></span>
+        <span style="color: color-mix(in srgb, var(--color-text) 66%, transparent);"><span data-l="en">Open to senior product design roles</span><span data-l="es">Abierta a posiciones de senior product design</span></span>
+      </div>
+      <h1 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 700; font-size: clamp(40px,4.8vw,64px); line-height: 1.04; letter-spacing: -.035em; margin: 0 0 26px;">
+        <span style="display: block;"><span data-l="en">B2B Complexity unlocked.</span><span data-l="es">Complejidad B2B, desbloqueada.</span></span>
+        <span style="display: block; font-size: .58em; line-height: 1.18; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 42%, transparent);"><span data-l="en">End-to-End Product Strategy</span><span data-l="es">Estrategia de producto end-to-end.</span></span>
+        <span style="display: block; font-size: .58em; line-height: 1.18; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 42%, transparent);"><span data-l="en">Product Designer at Salesforce.</span><span data-l="es">Product Designer en Salesforce.</span></span>
+      </h1>
+      <p style="font-size: 19px; line-height: 32px; margin: 0 0 34px; max-width: 44ch; color: color-mix(in srgb, var(--color-text) 72%, transparent);">
+        <span data-l="en" style="color: #595C68">Senior Product Designer working on complex B2B platforms, design systems and applied AI with eight years designing the internal tools Salesforce sells with.</span>
+        <span data-l="es" style="color: #595C68">Diseñadora de producto senior con ocho años de experiencia en plataformas B2B complejas, Design System e inteligencia artificial aplicada. Herramientas internas que Salesforce utiliza para sus ventas.</span>
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a class="btn btn-primary" href="#work"><span data-l="en">My latest work</span><span data-l="es">Ver mis proyectos</span></a>
+        <a class="btn btn-ghost" href="assets/Laura%20Carrion%20Perez%20-%20CV%20ES.pdf" onClick="{{ openCV }}" target="_blank" rel="noopener noreferrer"><span data-l="en">Resume</span><span data-l="es">CV</span></a>
+      </div>
+    </div>
+    <figure style="margin: 0; border-radius: 28px; overflow: hidden; background: var(--tint-peach); aspect-ratio: 4 / 5;">
+      <img src="assets/laura.png" alt="Laura Carrión" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+    </figure>
+  </header>
+
+  <section id="work" style="padding: 0 0 24px; scroll-margin-top: 96px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; justify-content: space-between; margin-bottom: 28px;">
+      <h2 style="font-family: var(--font-heading); font-weight: 500; font-size: 17px; line-height: 24px; letter-spacing: -.01em; margin: 0; height: 16px"><span data-l="en" style="color: #909090; font-size: 13px; font-weight: 400; line-height: 1">SELECTED WORK</span><span data-l="es" style="color: #909090; font-size: 13px; font-weight: 400; line-height: 1">PROYECTOS SELECCIONADOS</span></h2>
+      <p style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">Four case studies</span><span data-l="es">Cuatro casos de estudio</span></p>
+    </div>
+
+    <div data-mosaic="" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; align-items: stretch;">
+
+      
+
+      <a class="work-card" data-tile="" href="ROI-Calculator.dc.html" style="grid-column: span 6; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 8px 28px; border-radius: 34px; padding: 14px; background: var(--tint-sky); color: inherit; align-items: center;">
+        <figure style="margin: 0; border-radius: 22px; overflow: hidden;">
+          <img src="./348-copy-mtc4ht1z-e6tm.png" alt="ROI Calculator" style="display: block; width: 100%; height: 400px; object-fit: cover; object-position: 0% 0">
+        </figure>
+        <div style="padding: 12px 12px 12px 8px;">
+          
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0;"><span style="color: rgb(101, 88, 230); font-size: 11px; letter-spacing: 1.32px; text-transform: uppercase;">SALESFORCE</span></p>
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0; font-feature-settings: 'tnum' 1;">2022 — 2026<br></p>
+          </div>
+          <h3 style="font-family: var(--font-heading); font-weight: 500; font-size: clamp(28px,2.8vw,38px); line-height: 1.14; letter-spacing: -.03em; margin: 0 0 16px;"><span data-l="en" style="font-size: 29px;">The ROI Calculator, from one product to a multicloud platform</span><span data-l="es" style="font-size: 29px;">Calculadora ROI, de un producto a una plataforma multicloud.</span></h3>
+          <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 0 0 28px;"><span data-l="en">Account Executives face business deals every day where potential clients need reliable data. I designed a tool that generates this data, saving work time and building trust in client relationships. New this year is the Agentforce ROI Calculator.</span><span data-l="es" style="color: #595C68">Los ejecutivos de cuentas se enfrentan a diario a negociaciones comerciales en las que los clientes potenciales necesitan datos fiables. He diseñado una herramienta que genera estos datos, ahorrando tiempo de trabajo y fortaleciendo la confianza en las relaciones. Este año presentamos la nueva Calculadora de ROI de Agentforce y Agentic Value</span></p>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; padding-top: 20px; border-top: 1px solid var(--color-divider);">
+            
+            
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 30px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">6,630+</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">value cases generated</span><span data-l="es" style="color: #7A7E8A">value cases generados</span></p>
+            </div><div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 30px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">4,000</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">AEs &amp; RVPs users</span><span data-l="es" style="color: #7A7E8A">usuarios AEs y RVPs</span></p>
+            </div><div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 30px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">1,860</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">exports</span><span data-l="es" style="color: #7A7E8A">exportaciones</span></p>
+            </div>
+          </div>
+        </div>
+      </a><a class="work-card" data-tile="" href="Solutions-Workspace.dc.html" style="grid-column: 1 / span 3; grid-row: 2; display: flex; flex-direction: column; border-radius: 26px; padding: 14px 14px 26px; background: var(--tint-lilac); color: inherit;">
+        <figure style="margin: 0 0 22px; border-radius: 16px; overflow: hidden;">
+
+        <img src="assets/sw-cover.png" alt="Solutions Workspace" style="display: block; width: 100%; height: 320px; object-fit: cover; object-position: 50% 45%"></figure>
+        <div style="padding: 0 12px; display: flex; flex-direction: column; flex: 1 1 auto; justify-content: space-between;">
+          <div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0;"><span style="color: rgb(101, 88, 230); font-size: 11px; letter-spacing: 1.32px; text-transform: uppercase; background-color: rgb(228, 237, 250);">SALESFORCE</span></p>
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0; font-feature-settings: 'tnum' 1;">2020 — 2023</p>
+          </div>
+          <h3 style="font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 14px;"><span data-l="en">Solutions Workspace &amp; its design system</span><span data-l="es">Solutions Workspace y su design system</span></h3>
+          <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 0;"><span data-l="en" style="color: #595C68">This platform supports over 35,000 salespeople in several tasks across their business process. It provides sales value, demo resources, an AI assistant on the homepage, and tools to engage customers in the most effective and powerful way. The entire platform is aligned thanks to a design system that I co-created and maintain in production, completely independent of Salesforce's own.</span><span data-l="es">Esta plataforma da soporte a más de 35&nbsp;000 vendedores en diversas tareas a lo largo de su proceso de negocio. Proporciona valor añadido para las ventas, recursos para demos, un asistente de IA en la página de inicio y herramientas para interactuar con los clientes de la forma más eficaz y potente. Toda la plataforma está alineada gracias a un sistema de diseño que co-creé y mantengo en producción, completamente independiente del de Salesforce.</span></p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-divider)">
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">35,000+</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">users globally</span><span data-l="es" style="color: #7A7E8A">usuarios en todo el mundo</span></p>
+            </div>
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">3+</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">regions worldwide</span><span data-l="es" style="color: #7A7E8A">regiones</span></p>
+            </div><div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">7+</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">tools in one platform</span><span data-l="es" style="color: #7A7E8A">herramientas</span></p>
+            </div><div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">1</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">Design System</span><span data-l="es" style="color: #7A7E8A">Design System</span></p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a class="work-card" data-tile="" href="Slack-Salesforce.dc.html" style="grid-column: 4 / span 3; grid-row: 2; display: flex; flex-direction: column; border-radius: 26px; padding: 14px 14px 26px; background: var(--tint-peach); color: inherit;">
+        <figure style="margin: 0 0 22px; border-radius: 16px; overflow: hidden;">
+          <img src="./screenshot-2026-08-28-at-00-45-57-mtc4iz0f-shwc.png" alt="Slack en Salesforce" style="display: block; width: 100%; height: 320px; object-fit: cover; object-position: 100% 0">
+        </figure>
+        <div style="padding: 0 12px; display: flex; flex-direction: column; flex: 1 1 auto; justify-content: space-between;">
+          <div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0;"><span style="color: rgb(101, 88, 230); font-size: 11px; letter-spacing: 1.32px; text-transform: uppercase">SALESFORCE &amp; SLACK</span></p>
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0; font-feature-settings: 'tnum' 1;">2026</p>
+          </div>
+          <h3 style="font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 14px;"><span data-l="en">Bringing Slack inside Salesforce</span><span data-l="es">Llevar Slack dentro de Salesforce</span></h3>
+          <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 68%, transparent); margin: 0;"><span data-l="en" style="color: #595C68">Salesforce sellers were overwhelmed by switching between Salesforce and Slack while they were working on an Account. I led research to integrate Slack natively into Salesforce mapping user pain points, checking technical feasibility, and aligning teams to pitch the final proposal to VP leadership. Two directions were built and A/B tested rather than debated, reviewed with engineering and validated in task-based usability sessions.</span><span data-l="es">Los vendedores de Salesforce se veían desbordados por el salto constante entre Salesforce y Slack mientras trabajaban una cuenta. Lideré la investigación para integrar Slack de forma nativa en Salesforce: mapeé los puntos de dolor de los usuarios, comprobé la viabilidad técnica y alineé a los equipos para presentar la propuesta final a la dirección (VPs). Se desarrollaron dos propuestas y se sometieron a pruebas A/B, en lugar de debatirlas; además, se revisaron con el equipo de ingeniería y se validaron en sesiones de usabilidad basadas en tareas.</span></p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-divider)">
+            <div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">34</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">sellers interviewed</span><span data-l="es" style="color: #7A7E8A">vendedores entrevistados</span></p>
+            </div><div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">27</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">surveys received</span><span data-l="es" style="color: #7A7E8A">encuestas recibidas</span></p>
+            </div><div>
+              <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">4</p>
+              <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">teams involved</span><span data-l="es" style="color: #7A7E8A">equipos involucrados</span></p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section style="padding: 88px 0 0;">
+    <div style="border-radius: 26px; background: rgba(255,255,255,.66); border: 1px solid var(--color-divider); padding: clamp(28px,4vw,48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 36px;">
+      <div>
+        <p style="font-family: var(--font-heading); font-weight: 500; font-size: clamp(32px,3vw,44px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -.03em; font-feature-settings: 'tnum' 1;">9+</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0;"><span data-l="en" style="color: #595C68">Years in design evolving from visual design to end-to-end product strategy</span><span data-l="es">Años en diseño, del oficio visual a la estrategia de producto end-to-end</span></p>
+      </div>
+      <div>
+        <p style="font-family: var(--font-heading); font-weight: 500; font-size: clamp(32px,3vw,44px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -.03em; font-feature-settings: 'tnum' 1;">8 yrs</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0;"><span data-l="en" style="color: #595C68">At Salesforce leading strategy &amp; end-to-end UX for internal seller platforms</span><span data-l="es">En Salesforce liderando estrategia y UX end-to-end de plataformas internas de venta</span></p>
+      </div>
+      <div>
+        <p style="font-family: var(--font-heading); font-weight: 500; font-size: clamp(32px,3vw,44px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -.03em; font-feature-settings: 'tnum' 1;">$110M+</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0;"><span data-l="en" style="color: #595C68">In closed enterprise deals supported through UX &amp; presales solutions</span><span data-l="es">En operaciones enterprise cerradas apoyadas con UX estratégica y soluciones de preventa</span></p>
+      </div>
+      <div>
+        <p style="font-family: var(--font-heading); font-weight: 500; font-size: clamp(32px,3vw,44px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -.03em; font-feature-settings: 'tnum' 1;">66%</p>
+        <p style="font-size: 14px; line-height: 22px; color: color-mix(in srgb, var(--color-text) 58%, transparent); margin: 0;"><span data-l="en">Time reduction in UX research synthesis achieved with AI-assisted workflows</span><span data-l="es">De reducción de tiempo en la síntesis de research con flujos asistidos por IA</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="padding: 96px 0 0; scroll-margin-top: 96px;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 28px;"><span data-l="en">About</span><span data-l="es">Sobre mí</span></p>
+    <div style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px clamp(32px,6vw,76px); align-items: start;">
+      <figure style="margin: 0; border-radius: 26px; overflow: hidden; background: var(--tint-mint);">
+        <img src="assets/laura.jpg" alt="Laura Carrión" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 62% 40%;">
+      </figure>
+      <div>
+        <h2 style="font-family: var(--font-heading); font-weight: 500; font-size: clamp(30px,3.4vw,44px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 28px;"><span data-l="en">Hey, I'm Laura</span><span data-l="es">Hola, soy Laura</span></h2>
+        <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); margin: 0 0 24px;"><span data-l="en" style="color: rgb(89, 92, 104);">I'm a Senior Product Designer at Salesforce in Madrid with 8 years of experience at Salesforce designing complex B2B products.</span><span data-l="es">Soy Diseñador de Producto Senior en Salesforce en Madrid, con 8 años de experiencia diseñando productos B2B complejos.</span></p>
+        <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); margin: 0 0 24px;"><span data-l="en" style="display: inline-block; width: 588px; height: 204px;">I trained as a fine artist in Madrid and Bordeaux, started out in visual design and packaging, and joined Salesforce in Dublin in 2018 as Experience Designer supporting Solution Engineering and Account Executives across EMEA. Since then I've spent 8 years creating end-to-end product designs (research, wireframing, high-fidelity design, usability testing, and implementation QA) in collaboration with Product Owners, engineering, Program Managers and pre-sales stakeholders.</span><span data-l="es">Me formé como artista plástico en Madrid y Burdeos, comencé mi carrera en diseño visual y packaging, y me incorporé a Salesforce en Dublín en 2018 como Diseñador de Experiencia, dando soporte a Ingeniería de Soluciones y Ejecutivos de Cuentas en EMEA. Desde entonces, he dedicado 8 años a la creación de diseños de producto integrales (investigación, wireframing, diseño de alta fidelidad, pruebas de usabilidad y control de calidad de la implementación) en colaboración con Product Owners, ingeniería, Program Managers y el equipo de preventa.</span></p>
+        <p style="font-size: 16.5px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 72%, transparent); margin: 0 0 32px;"><span data-l="en" style="color: #595C68">I integrate generative AI to accelerate UX research and design conversational assistants. I am a native Spanish speaker with a C1 level in English and a B2 level in French, having lived in several English and French-speaking countries.</span><span data-l="es">Integro IA generativa para acelerar la investigación de UX y el diseño de asistentes conversacionales. Soy hispanohablante nativo, con un nivel C1 de inglés y un nivel B2 de francés, y he vivido en varios países de habla inglesa y francesa.</span></p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">End-to-end product design</span><span data-l="es">Diseño de producto end-to-end</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">B2B platforms</span><span data-l="es">Plataformas B2B</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">High-density interfaces</span><span data-l="es">Interfaces de alta densidad</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Design systems</span><span data-l="es">Design systems</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">UX research</span><span data-l="es">UX research</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Usability testing</span><span data-l="es">Usability testing</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Conversational &amp; agentic UX</span><span data-l="es">UX conversacional y agentic</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Accessibility</span><span data-l="es">Accesibilidad</span></span>
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Figma · Figma Make · Framer</span><span data-l="es">Figma · Figma Make · Framer</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="words" style="padding: 96px 0 0; scroll-margin-top: 96px;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 28px;"><span data-l="en">Kind words</span><span data-l="es">Lo que dicen de mí</span></p>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 24px; align-items: stretch;">
+      <div style="grid-column: span 6; border-radius: 26px; background: var(--tint-sky); padding: 14px;">
+        <div style="padding: 18px 20px 20px;">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="color-mix(in srgb, var(--color-text) 26%, transparent)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display: block; margin-bottom: 14px;"><path d="M9.5 6.5C7 8 5.8 10 5.8 12.4c0 2 1.2 3.3 2.9 3.3 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.5-2.4-2.5-.3 0-.6 0-.8.1.3-1.3 1.2-2.5 2.6-3.4Z"></path><path d="M18.2 6.5c-2.5 1.5-3.7 3.5-3.7 5.9 0 2 1.2 3.3 2.9 3.3 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.5-2.4-2.5-.3 0-.6 0-.8.1.3-1.3 1.2-2.5 2.6-3.4Z"></path></svg>
+        <p style="font-size: 15.5px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 0;"><span style="color: #595C68">“Laura is incredibly easy to work with — a clear communicator and a careful listener, very receptive to developer and stakeholder feedback. Fantastic attention to detail: she stays focused on the bigger picture but goes into the small details when necessary.</span></p>
+        <p style="font-size: 15.5px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 8px 0 0;"><span>She always produces two or three different scenarios, which makes working with stakeholders incredibly easy — they can see what’s in front of them and make informed decisions. She gained in-depth knowledge of a very difficult existing project (BVD) and converted it into a simple, straightforward design, removing complexity at every step.</span></p>
+        <p style="font-size: 15.5px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 8px 0 0;"><span style="color: #595C68">Laura always puts an emphasis on making her Figma designs easily consumable for developers — the dev team appreciate this very much. She produces high-quality work at a fast pace, identifies the most important work and prioritises well, and can deal with ambiguity and understands how to overcome it. Always a pleasure to work with."</span></p>
+        <div style="display: flex; align-items: center; gap: 14px; margin-top: 26px;">
+          <img src="assets/colm.png" alt="Colm O’Shea" style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 999px; object-fit: cover; border: 1px solid var(--color-divider);">
+          <div>
+            <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; letter-spacing: -.02em; margin: 0;">Colm O’Shea</p>
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0;">Software Engineering LMTS @ Salesforce</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div style="grid-column: span 3; border-radius: 26px; background: var(--tint-lilac); padding: 14px; display: flex; flex-direction: column;">
+        <div style="padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1 1 auto; justify-content: space-between;">
+        <div>
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="color-mix(in srgb, var(--color-text) 26%, transparent)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display: block; margin-bottom: 14px;"><path d="M9.5 6.5C7 8 5.8 10 5.8 12.4c0 2 1.2 3.3 2.9 3.3 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.5-2.4-2.5-.3 0-.6 0-.8.1.3-1.3 1.2-2.5 2.6-3.4Z"></path><path d="M18.2 6.5c-2.5 1.5-3.7 3.5-3.7 5.9 0 2 1.2 3.3 2.9 3.3 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.5-2.4-2.5-.3 0-.6 0-.8.1.3-1.3 1.2-2.5 2.6-3.4Z"></path></svg>
+        <p style="font-size: 15px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 0;"><span style="color: #595C68">“Laura was my mentor when I first started at Salesforce, and she’s remained one ever since. Even now that we no longer work together, I still find myself going to her when I run into a tough problem. She was exactly the person I needed at the beginning of my career and I am so thankful.</span></p>
+        <p style="font-size: 15px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 8px 0 0;"><span style="color: #595C68">What makes her stand out isn’t just her talent — though she’s an incredibly skilled designer with range across so many areas of the craft — it’s how much she cares. She cares deeply about the quality of the work, and just as much about the people she works with. She’s generous with her time and her knowledge in a way that’s rare.</span></p>
+        <p style="font-size: 15px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 8px 0 0;"><span style="color: #595C68">Laura is so smart and endlessly talented. I’d work with her again on every project, every day, given the chance. Any team would be lucky to have her."</span></p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px; margin-top: 26px;">
+          <img src="assets/shannon.png" alt="Shannon Foy" style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 999px; object-fit: cover; border: 1px solid var(--color-divider);">
+          <div>
+            <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; letter-spacing: -.02em; margin: 0;">Shannon Foy</p>
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0;">UX Designer @ Google</p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div style="grid-column: span 3; border-radius: 26px; background: var(--tint-peach); padding: 14px; display: flex; flex-direction: column;">
+        <div style="padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1 1 auto; justify-content: space-between;">
+        <div>
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="color-mix(in srgb, var(--color-text) 26%, transparent)" stroke-width="1.8" stroke-linecap="round" aria-hidden="true" style="display: block; margin-bottom: 14px;"><path d="M9.5 6.5C7 8 5.8 10 5.8 12.4c0 2 1.2 3.3 2.9 3.3 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.5-2.4-2.5-.3 0-.6 0-.8.1.3-1.3 1.2-2.5 2.6-3.4Z"></path><path d="M18.2 6.5c-2.5 1.5-3.7 3.5-3.7 5.9 0 2 1.2 3.3 2.9 3.3 1.6 0 2.7-1.1 2.7-2.6 0-1.4-1-2.5-2.4-2.5-.3 0-.6 0-.8.1.3-1.3 1.2-2.5 2.6-3.4Z"></path></svg>
+        <p style="font-size: 15px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 0;"><span style="color: #595C68">“I had the pleasure of working with Laura, and her communication skills, attention to detail and ability to handle complexity have always stood out. She has led UX/UI design work that earned high praise from stakeholders, and navigated multiple team restructurings with real resilience, never letting that affect the quality of her work.</span></p>
+        <p style="font-size: 15px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 8px 0 0;"><span style="color: #595C68">She brings a warm, collaborative energy to everything she does — coordinating complex, cross-functional research projects while still being someone people genuinely enjoy working with. Her dedication to continuous learning, from UX strategy through to data analytics, shows how invested she is in doing right by the people who use what she builds.</span></p>
+        <p style="font-size: 15px; line-height: 1.58; letter-spacing: -.01em; color: color-mix(in srgb, var(--color-text) 82%, transparent); margin: 8px 0 0;"><span style="color: #595C68">I highly recommend Laura for any opportunity that comes her way. She is a true professional and a wonderful person to have on any team."</span></p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 14px; margin-top: 26px;">
+          <img src="assets/mario.png" alt="Mario Picariello" style="flex: 0 0 auto; width: 46px; height: 46px; border-radius: 999px; object-fit: cover; border: 1px solid var(--color-divider);">
+          <div>
+            <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 17px; line-height: 24px; letter-spacing: -.02em; margin: 0;">Mario Picariello</p>
+            <p style="font-size: 13px; line-height: 20px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 0;">Principal Experience Designer, AI Centre @ Salesforce</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding: 96px 0 64px;">
+    <div style="border-radius: 30px; background: rgba(255,255,255,.72); border: 1px solid var(--color-divider); padding: clamp(28px,4vw,52px); display: grid; grid-template-columns: minmax(0, 2.1fr) minmax(140px, .85fr) minmax(200px, 1fr); gap: 40px clamp(36px,4.5vw,68px); justify-items: start; align-items: start;">
+      <div>
+        <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 24px; line-height: 1.2; letter-spacing: -.02em; margin: 0 0 20px;">Laura Carrión</p>
+        <p style="font-size: 19px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0 0 8px; max-width: 30ch;"><span data-l="en" style="color: #595C68">Product Designer focused on complex B2B platforms and human-centered design.</span><span data-l="es">Product Designer centrada en plataformas B2B complejas y diseño centrado en las personas.</span></p>
+        <p style="font-size: 15px; font-weight: 700; line-height: 24px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 0;"><span data-l="en" style="color: #595C68">Portfolio © 2026 by Laura</span><span data-l="es">Portfolio © 2026 por Laura</span></p>
+      </div>
+      <div>
+        <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 18px;"><span data-l="en">Links</span><span data-l="es">Enlaces</span></p>
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="https://www.linkedin.com/in/lauracarrionperez" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: #595C68"><span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 9px; border: 1.6px solid color-mix(in srgb, var(--color-text) 55%, transparent); color: color-mix(in srgb, var(--color-text) 55%, transparent);"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><rect x="3.5" y="3.5" width="17" height="17" rx="3"></rect><path d="M8 10.5V16"></path><path d="M8 7.6v.2"></path><path d="M11.7 16v-3.1a2.2 2.2 0 0 1 4.4 0V16"></path><path d="M11.7 10.5V16"></path></svg></span>LinkedIn</a>
+          <a href="./assets/Laura%20Carrion%20Perez%20-%20CV%20ES.pdf" onClick="{{ openCV }}" style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--color-text)" target="_blank" rel="noreferrer"><span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 9px; border: 1.6px solid color-mix(in srgb, var(--color-text) 55%, transparent); color: color-mix(in srgb, var(--color-text) 55%, transparent);"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M14 3.5H7.5A1.5 1.5 0 0 0 6 5v14a1.5 1.5 0 0 0 1.5 1.5h9A1.5 1.5 0 0 0 18 19V7.5Z"></path><path d="M14 3.5V8h4"></path><path d="M9 13h6"></path><path d="M9 16.5h4"></path></svg></span><span data-l="en" style="color: #595C68">Resume</span><span data-l="es">CV</span></a>
+        </div>
+      </div>
+      <div>
+        <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 18px;"><span data-l="en">Contact</span><span data-l="es">Contacto</span></p>
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <a href="mailto:laura.p.carrion92@gmail.com" style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: #595C68"><span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 9px; border: 1.6px solid color-mix(in srgb, var(--color-text) 55%, transparent); color: color-mix(in srgb, var(--color-text) 55%, transparent);"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><rect x="3" y="5.5" width="18" height="13" rx="2.5"></rect><path d="m4 7.5 8 5.5 8-5.5"></path></svg></span>laura.p.carrion92@gmail.com</a>
+          <p style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; line-height: 24px; color: #191823; margin: 0"><span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 9px; border: 1.6px solid color-mix(in srgb, var(--color-text) 55%, transparent); color: color-mix(in srgb, var(--color-text) 55%, transparent);"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M12 21c4-4.2 6-7.2 6-9.8A6 6 0 0 0 6 11.2C6 13.8 8 16.8 12 21Z"></path><circle cx="12" cy="11" r="2.2"></circle></svg></span><span data-l="en" style="color: #595C68">Madrid, Spain</span><span data-l="es">Madrid, España</span></p>
+          <a href="mailto:laura.p.carrion92@gmail.com" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 12px; padding: 15px 26px; border-radius: 999px; background: var(--color-accent); color: #fff; font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; font-size: 17px; letter-spacing: -.01em; box-shadow: var(--shadow-md);"><span data-l="en">Let's chat</span><span data-l="es">Hablemos</span><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: 0 0 auto;"><path d="M5 12h13"></path><path d="M12.5 6.5 19 12l-6.5 5.5"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      openCV: (e) => {
+        e.preventDefault();
+        const lang = document.documentElement.dataset.lang === 'es' ? 'ES' : 'EN';
+        const u = 'assets/Laura%20Carrion%20Perez%20-%20CV%20' + lang + '.pdf';
+        const name = 'Laura Carrion Perez - CV ' + lang + '.pdf';
+
+        const noInlinePdf = (navigator.pdfViewerEnabled === false) || window.matchMedia('(pointer: coarse)').matches;
+        if (noInlinePdf) {
+          const tab = window.open('about:blank', '_blank');
+          fetch(u).then(r => r.blob()).then(b => {
+            const url = URL.createObjectURL(new Blob([b], { type: 'application/pdf' }));
+            if (tab && !tab.closed) {
+              tab.location.href = url;
+            } else {
+              const a = document.createElement('a');
+              a.href = url; a.download = name;
+              document.body.appendChild(a); a.click(); a.remove();
+            }
+            setTimeout(() => URL.revokeObjectURL(url), 180000);
+          }).catch(() => { if (tab && !tab.closed) tab.close(); });
+          return;
+        }
+        const win = window.open('about:blank', '_blank');
+        fetch(u).then(r => r.blob()).then(b => {
+          const url = URL.createObjectURL(new Blob([b], { type: 'application/pdf' }));
+          const download = () => {
+            const a = document.createElement('a');
+            a.href = url; a.download = name;
+            document.body.appendChild(a); a.click(); a.remove();
+          };
+          let shown = false;
+          if (win && !win.closed) {
+            try {
+              win.document.open();
+              win.document.write('<!doctype html><html><head><meta charset="utf-8"><title>' + name +
+                '</title><style>html,body{margin:0;height:100%;background:#161826}iframe{border:0;display:block;width:100%;height:100%}</style></head><body><iframe src="' +
+                url + '"></iframe></body></html>');
+              win.document.close();
+              shown = true;
+            } catch (err) { try { win.close(); } catch (e2) {} }
+          }
+          if (!shown) download();
+          setTimeout(() => URL.revokeObjectURL(url), 180000);
+        }).catch(() => { if (win && !win.closed) win.close(); });
+        return;
+      },
+      openCVInline: (e) => {
+        e.preventDefault();
+        const lang = document.documentElement.dataset.lang === 'es' ? 'ES' : 'EN';
+        const u = 'assets/Laura%20Carrion%20Perez%20-%20CV%20' + lang + '.pdf';
+        const name = 'Laura Carrion Perez - CV ' + lang + '.pdf';
+        document.getElementById('cv-viewer')?.remove();
+        const wrap = document.createElement('div');
+        wrap.id = 'cv-viewer';
+        wrap.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;background:rgba(22,24,38,.88);backdrop-filter:blur(6px);padding:clamp(12px,3vw,28px);gap:14px;';
+
+        const bar = document.createElement('div');
+        bar.style.cssText = "display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Grotesk',sans-serif;color:#fff;";
+        const title = document.createElement('span');
+        title.textContent = name;
+        title.style.cssText = 'font-size:15px;font-weight:500;letter-spacing:-.01em;';
+        const actions = document.createElement('div');
+        actions.style.cssText = 'display:flex;gap:10px;align-items:center;';
+        const dl = document.createElement('a');
+        dl.textContent = lang === 'ES' ? 'Descargar' : 'Download';
+        dl.download = name;
+        dl.style.cssText = 'font-size:14px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:7px 16px;';
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.textContent = lang === 'ES' ? 'Cerrar' : 'Close';
+        close.style.cssText = "font-family:'Space Grotesk',sans-serif;font-size:14px;color:#161826;background:#fff;border:0;border-radius:999px;padding:8px 17px;cursor:pointer;";
+        actions.append(dl, close);
+        bar.append(title, actions);
+
+        const frame = document.createElement('iframe');
+        frame.style.cssText = 'flex:1;width:100%;border:0;border-radius:12px;background:#fff;';
+        frame.title = name;
+
+        wrap.append(bar, frame);
+        document.body.appendChild(wrap);
+
+        let url = null;
+        const dispose = () => {
+          wrap.remove();
+          document.removeEventListener('keydown', onKey);
+          if (url) setTimeout(() => URL.revokeObjectURL(url), 1000);
+        };
+        const onKey = (ev) => { if (ev.key === 'Escape') dispose(); };
+        close.addEventListener('click', dispose);
+        wrap.addEventListener('click', (ev) => { if (ev.target === wrap) dispose(); });
+        document.addEventListener('keydown', onKey);
+
+        fetch(u).then(r => r.blob()).then(b => {
+          url = URL.createObjectURL(new Blob([b], { type: 'application/pdf' }));
+          dl.href = url;
+          frame.src = url;
+        }).catch(() => dispose());
+      },
+      toggleLang: () => {
+        const el = document.documentElement;
+        const next = el.dataset.lang === 'es' ? 'en' : 'es';
+        el.dataset.lang = next;
+        try { localStorage.setItem('lcp-lang', next); } catch (e) {}
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

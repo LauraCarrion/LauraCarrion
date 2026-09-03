@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="theme-light.css">
+<script src="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/_ds_bundle.js"></script>
+<script>document.documentElement.dataset.lang = localStorage.getItem('lcp-lang') || 'en';</script>
+<style>
+html[data-lang="en"] [data-l="es"], html[data-lang="es"] [data-l="en"] { display: none !important; }
+body { margin: 0; text-wrap: pretty;
+  background:
+    radial-gradient(900px 520px at 88% -120px, var(--tint-lilac), transparent 62%),
+    radial-gradient(760px 520px at -6% 6%, var(--tint-peach), transparent 58%),
+    var(--color-bg);
+  background-attachment: fixed; }
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-300); }
+@media (max-width: 900px) {
+  [data-two] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+
+/* Mobile & tablet only: the intro paragraph right under the H1 is set
+   larger (18px/19px) than the rest of the page's body copy (16px).
+   Match it to the body size below 1024px only; desktop keeps its larger
+   intro exactly as it is. Scoped to <header> so it can't touch the eyebrow
+   tag chips or the H1 itself — the intro <p> is the only <p> in there. */
+@media (max-width: 1024px) {
+  header p, header p * { font-size: 16px !important; }
+}
+
+/* --- responsive: neutralise fixed pixel sizes from direct edits --- */
+@media (max-width: 1024px) {
+  img, video, iframe { max-width: 100% !important; }
+  h1, h2, h3, h4, p, figcaption, h1 span, h2 span, h3 span, h4 span, p span, figcaption span {
+    width: auto !important; height: auto !important; white-space: normal !important;
+  }
+  [data-two], [data-mosaic], header, section, footer { width: auto !important; height: auto !important; max-width: 100% !important; }
+  .nav { flex-wrap: wrap; row-gap: 8px; }
+}
+/* Mobile nav sizing — identical in English and Spanish. The Spanish labels
+   run longer than their English counterparts, so these sizes/paddings are
+   tuned to fit the longer Spanish text; English, being shorter, fits the
+   same boxes with room to spare. Same font-size for both languages at every
+   width means the bar never looks mismatched when the language is toggled. */
+@media (max-width: 640px) {
+  .nav { flex-wrap: nowrap !important; row-gap: 0 !important; gap: 6px !important; padding-left: 12px !important; padding-right: 12px !important; }
+  .nav .nav-brand { font-size: 14.5px !important; white-space: nowrap !important; flex: 0 0 auto !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 11.8px !important; padding: 6px 7px !important; white-space: nowrap !important; }
+  .nav .btn { font-size: 11.8px !important; padding: 6px 9px !important; white-space: nowrap !important; }
+}
+@media (max-width: 430px) {
+  .nav { gap: 4px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .nav .nav-brand { font-size: 12.4px !important; white-space: nowrap !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 10px !important; padding: 5px 5px !important; }
+  .nav .btn { font-size: 10px !important; padding: 6px 6px !important; }
+}
+@media (max-width: 370px) {
+  .nav { gap: 3px !important; padding-left: 7px !important; padding-right: 7px !important; }
+  .nav .nav-brand { font-size: 11px !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 9px !important; padding: 4px 4px !important; }
+  .nav .btn { font-size: 9px !important; padding: 5px 4px !important; }
+}
+@media (max-width: 339px) {
+  .nav > a:not(.btn):not([href^="Home"]) { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  [data-two] > div > div[style*="height:"] { height: auto !important; }
+  [data-two] figure img { width: 100% !important; }
+}
+
+/* Preview thumbnails on narrow screens ------------------------------------
+   These images are pinned to a fixed pixel height with object-fit: cover.
+   On a phone the column is much narrower than the box is tall, so "cover"
+   scales the image up and crops its sides away (up to ~67% of the width).
+   Release the height below 1024px so each one scales to its own aspect
+   ratio and shows in full, exactly like assets/roi-value-agent-v2.png,
+   which is already width:100% + height:auto. Desktop is left untouched. */
+@media (max-width: 1024px) {
+  figure img[src*="3-mthowz92-wmdu"],
+  figure img[src*="302-1--mtdhj4af-yohk"],
+  figure img[src*="agentforce-service-savings-calculator"] {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* the "01" card's left column is a direct child of [data-two] (one level),
+     not nested one level deeper like the other cards, so the two-level
+     selector below never matched it and its hand-set 423x552 box kept
+     forcing horizontal scroll on narrow phones */
+  [data-two] > div[style*="width:"], [data-two] > div[style*="height:"],
+  [data-two] > div > div[style*="width:"], [data-two] > div > div[style*="height:"] { width: auto !important; height: auto !important; }
+  image-slot, .sc-host-x, x-import { max-width: 100% !important; width: auto !important; }
+  [data-two] > * { min-width: 0 !important; }
+  figure { max-width: 100% !important; }
+}
+
+/* --- Spanish copy runs longer: release hand-set pixel boxes --- */
+html[data-lang="es"] h1, html[data-lang="es"] h2, html[data-lang="es"] h3, html[data-lang="es"] h4,
+html[data-lang="es"] p, html[data-lang="es"] figcaption,
+html[data-lang="es"] span[data-l], html[data-lang="es"] header,
+html[data-lang="es"] [data-two] {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+html[data-lang="es"] h1, html[data-lang="es"] h2, html[data-lang="es"] h3, html[data-lang="es"] h4,
+html[data-lang="es"] p, html[data-lang="es"] figcaption, html[data-lang="es"] span[data-l] {
+  width: auto !important;
+}
+html[data-lang="es"] [data-keep-width] { width: 1090px !important; max-width: 100% !important; height: auto !important; }
+html[data-lang="es"] header { width: 100% !important; }
+</style>
+</helmet>
+
+<div style="padding: 0 clamp(16px,4vw,32px);">
+  <nav class="nav" style="position: sticky; top: 0; z-index: 20;">
+    <a class="nav-brand" href="Home.dc.html" style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; letter-spacing: -.02em; font-size: 17px; color: var(--color-text);">Laura Carrión</a>
+    <a href="Home.dc.html"><span data-l="en">← All work</span><span data-l="es">← Todo el trabajo</span></a>
+    <button type="button" class="btn btn-ghost" onClick="{{ toggleLang }}" style="margin-left: auto;"><span data-l="en">ES</span><span data-l="es">EN</span></button>
+    <a class="btn btn-primary" href="mailto:laura.p.carrion92@gmail.com" style="white-space: nowrap;"><span data-l="en">Let's chat</span><span data-l="es">Hablemos</span></a>
+  </nav>
+</div>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+
+  <header style="padding: 96px 0 48px; width: 1093px; height: 490px">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+      <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Seller support tool</span><span data-l="es">Herramienta de soporte a ventas</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Enterprise UX</span><span data-l="es">UX enterprise</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Calculator</span><span data-l="es">Calculadora</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Agentforce · AI</span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Salesforce</span>
+    </div>
+    <h1 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(40px,5.4vw,74px); line-height: 1.04; letter-spacing: -.035em; margin: 0 0 30px;"><span data-l="en">The ROI Calculator</span><span data-l="es">El ROI Calculator</span></h1>
+    <p style="font-size: 19px; line-height: 32px; max-width: 100ch; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent); width: 1090px; height: 158px">
+      <span data-l="en" style="display: inline-block; width: 1091px; height: 184px; font-size: 18px">Every business deal requires a number the client can trust. I designed a tool that allows this data to be calculated in real time. Now, the Account executives don't need to perform manual calculations and then send them to the client; instead, during the meeting itself, they can use this tool to calculate, together with their client, the return on investment they would achieve by working with Salesforce. It all started with single calculators for each product, but it became so successful that every team wanted their own, so I had to develop a multi-cloud platform to support all the teams across different Salesforce products; now it's the most used product in Solutions Workspace platform.</span>
+      <span data-l="es" data-keep-width="" style="display: inline-block; font-size: 18px; width: 1090px; color: #58565C">Toda negociación comercial necesita una cifra en la que el cliente pueda confiar. Diseñé una herramienta que permite calcular ese dato en tiempo real. Ahora los Account Executives no tienen que hacer cálculos manuales y enviarlos después al cliente: durante la propia reunión pueden calcular, junto a él, el retorno de la inversión que obtendría trabajando con Salesforce. Todo empezó con calculadoras independientes para cada producto, pero tuvo tanto éxito que cada equipo quería la suya, así que desarrollé una plataforma multicloud capaz de dar soporte a todos los equipos y productos de Salesforce. Hoy es el producto más usado de la plataforma Solutions Workspace.</span>
+    </p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px 40px; padding: 0 0 48px;">
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">My role</span><span data-l="es">Mi rol</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Product designer lead</span><span data-l="es">Lead de product design</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Users</span><span data-l="es">Usuarios</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">AEs · AMER, EMEA, ROW</span><span data-l="es">AEs · AMER, EMEA, ROW</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Status</span><span data-l="es">Estado</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Shipped &amp; iterating</span><span data-l="es">En producción, iterando</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;">Timeline</p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;">2022 – 2026</p>
+    </div>
+  </div>
+
+  <figure data-zoom="" style="margin: 0 0 88px; cursor: zoom-in;">
+    <img src="assets/roi-hero.png" alt="ROI Calculator — value drivers and total annual benefit" style="display: block; width: 100%; height: auto; border-radius: 16px;">
+  </figure>
+
+  <section style="padding: 0 0 88px;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">Context</span><span data-l="es">Contexto</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 32px; max-width: 24ch; width: 767px; height: 110px"><span data-l="en" style="width: 876px; height: 148px">Why do manual calculations cost you time and accuracy?</span><span data-l="es">¿Por qué los cálculos manuales te cuestan tiempo y precisión?</span></h2>
+    <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 58ch; margin: 0 0 26px;">
+      
+      
+    </p>
+    <div style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 58ch; margin: 0;"><div><span data-l="en">Salesforce sellers relied on manual spreadsheets to calculate ROI, copying data across unsynchronised files. This caused inconsistent figures and slow response times, leaving clients waiting and stalling negotiations.</span><span data-l="es">Los vendedores de Salesforce dependían de hojas de cálculo manuales para calcular el ROI, copiando datos entre archivos sin sincronizar. Eso provocaba cifras inconsistentes y tiempos de respuesta lentos, dejando a los clientes esperando y frenando las negociaciones.</span></div><div><br></div><div><span data-l="en">The solution was clear: a calculator was needed. A tool that would build trust between client and sellers. The goal was to empower account executives to defend each number in a meeting with their potential client, displaying the answer in real time to the most frequently asked question for Account Executives: Why Salesforce?</span><span data-l="es">La solución era clara: hacía falta una calculadora. Una herramienta que generara confianza entre el cliente y el equipo de ventas. El objetivo era que los Account Executives pudieran defender cada cifra en una reunión con su cliente potencial, mostrando en tiempo real la respuesta a la pregunta que más les hacen: ¿por qué Salesforce?</span></div>
+    </div>
+  </section>
+</div>
+
+<section style="background: var(--tint-lilac); padding: 88px 0;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 40px;">
+    <div>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(36px,3.6vw,54px); line-height: 1.08; letter-spacing: -.035em; margin: 0 0 14px; font-feature-settings: 'tnum' 1;">6,630</p>
+      <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin: 0; max-width: 24ch;"><span data-l="en">Value cases generated</span><span data-l="es">Value cases generados</span></p>
+    </div>
+    <div>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(36px,3.6vw,54px); line-height: 1.08; letter-spacing: -.035em; margin: 0 0 14px; font-feature-settings: 'tnum' 1;">$87M</p>
+      <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin: 0; max-width: 24ch;"><span data-l="en">In closed deals the work contributed to</span><span data-l="es">En operaciones cerradas a las que contribuyó el trabajo</span></p>
+    </div>
+    <div>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(36px,3.6vw,54px); line-height: 1.08; letter-spacing: -.035em; margin: 0 0 14px; font-feature-settings: 'tnum' 1;">4,000+</p>
+      <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin: 0; max-width: 24ch;"><span data-l="en">People using the Agentforce assistant across three regions</span><span data-l="es">Personas usando el asistente Agentforce en tres regiones</span></p>
+    </div>
+    <div>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(36px,3.6vw,54px); line-height: 1.08; letter-spacing: -.035em; margin: 0 0 14px; font-feature-settings: 'tnum' 1;">5+ → 1</p>
+      <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 62%, transparent); margin: 0; max-width: 24ch;"><span data-l="en">Separate calculators replaced by one multicloud platform</span><span data-l="es">Calculadoras separadas sustituidas por una plataforma multicloud</span></p>
+    </div>
+  </div>
+</section>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+  <section style="padding: 96px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">The project's journey</span><span data-l="es">El recorrido del proyecto</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 32px; max-width: 22ch;"><span data-l="en">One calculator, then many, then one platform</span><span data-l="es">Una calculadora, después muchas, después una plataforma</span></h2>
+    <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 56ch; margin: 0;"><span data-l="en">The success of this tool has allowed it to continue developing over the years. It all started with Service Cloud Calculator, but it soon became clear that a multi-cloud calculator was worthwhile. I designed every stage of this tool and have evolved alongside it.</span><span data-l="es">El éxito de esta herramienta le ha permitido seguir evolucionando año tras año. Todo empezó con la calculadora de Service Cloud, pero pronto quedó claro que merecía la pena una calculadora multicloud. He diseñado cada etapa de esta herramienta y he evolucionado con ella.</span></p>
+  </section>
+
+  <section style="padding: 56px 0 0; display: grid; gap: 10px">
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 48px 0 0; width: 1086px; align-self: flex-start; height: 607px">
+      <div style="width: 423px; height: 552px">
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">01</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">A calculator per Salesforce product</span><span data-l="es">Una calculadora por producto de Salesforce</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0 0 24px; width: 412px; height: 321px"><span style="color: color(srgb 0.0980392 0.0941176 0.137255 / 0.66);"><span data-l="en">I led this project from scratch. The key UX problem was to organise dense data onto a single screen so AEs could seamlessly input data and see instant output. Creating an effortless user experience was essential to building client confidence. One of the big challenges of this project was managing tight deadlines alongside Salesforce's high-stakes sales teams while working closer to engineering to translate business requirements into an easy technical build. A responsive tool to be used on the device that best suits the seller.</span><span data-l="es">Lideré este proyecto desde cero. El principal problema de UX era organizar datos muy densos en una sola pantalla para que los AEs pudieran introducir la información y ver el resultado al instante. Conseguir una experiencia fluida era esencial para generar confianza en el cliente. Uno de los grandes retos fue gestionar plazos muy ajustados junto a equipos de ventas con mucho en juego, trabajando muy cerca de los desarroladores para traducir los requisitos de negocio en una construcción técnica sencilla. Una herramienta responsive para usarse en el dispositivo que mejor le convenga al vendedor.</span>&nbsp;</span><font color="color(srgb 0.0980392 0.0941176 0.137255 / 0.66)"></font></p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Custom calculator</span><span data-l="es">Propuesta y liderazgo</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span style="color: color(srgb 0.0980392 0.0941176 0.137255 / 0.62);">Responsive</span></span><span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span style="color: color(srgb 0.0980392 0.0941176 0.137255 / 0.62);"><span data-l="en">Customer-facing output</span><span data-l="es">Salida de cara al cliente</span></span></span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <img src="./3-mthowz92-wmdu.png" alt="ROI Calculator" style="display: block; width: 601px; height: 500px; object-fit: cover; object-position: 0% 0; border-radius: 14px">
+        
+      </figure>
+    </div>
+
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 48px 0; width: 1086px; height: 675px">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">02</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">The multicloud platform</span><span data-l="es">La plataforma multicloud</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0 0 24px;"><span data-l="en">Following that success, I designed a single tool that would support everyone equally, eliminating the queue instead of managing it. The challenge was even greater: it wasn't just about calculating the ROI of a single product, but about enabling those offering multiple products to perform the calculations simultaneously, in the same document, and exporting a comprehensive report with all the information together. This solution not only became a universal tool but also saved thousands of Account Executives across different industries, countries, and product lines countless hours of work and frustration.</span><span data-l="es">Tras ese éxito diseñé una única herramienta que diera soporte a todos por igual, eliminando la cola en lugar de gestionarla. El reto era aún mayor: no se trataba solo de calcular el ROI de un producto, sino de permitir que quienes ofrecen varios productos hicieran los cálculos a la vez, en el mismo documento, y exportaran un informe completo con toda la información junta. Esta solución no solo se convirtió en una herramienta universal, sino que ahorró a miles de Account Executives de distintas industrias, países y líneas de producto incontables horas de trabajo y frustración.</span></p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Multicloud</span><span data-l="es">Multicloud</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Information architecture</span><span data-l="es">Arquitectura de información</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Scalability</span><span data-l="es">Escalabilidad</span></span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        
+      <img src="./302-1--mtdhj4af-yohk.png" alt="ROI Calculator" style="display: block; width: 648px; height: 576px; object-fit: cover; object-position: 0% 0; border-radius: 14px"></figure>
+    </div><div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 48px 0 0; width: 1087px; height: 630px">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">03</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">Agentforce inside the calculator</span><span data-l="es">Agentforce dentro de la calculadora</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0 0 24px;"><span data-l="en">Recently I have designed the Agentforce Service Savings Calculator which was highly acclaimed within the company. At Salesforce, Agentforce marked a turning point, and of course, this tool had to be updated and follow the same direction the company was taking. It has already been used by more than 4,000 users across AMER, EMEA and ROW.&nbsp;</span><span data-l="es">Recientemente he diseñado la Agentforce Service Savings Calculator, que ha tenido una acogida excelente dentro de la compañía. En Salesforce, Agentforce marcó un punto de inflexión y, por supuesto, esta herramienta tenía que actualizarse y seguir la misma dirección que la compañía. Ya la han usado más de 4.000 personas en AMER, EMEA y ROW.</span></p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;">Agentforce</span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">NextGen</span><span data-l="es">NextGen</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Agentic UX</span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <img src="./agentforce-service-savings-calculator----mtdhkich-a4ua.png" alt="ROI Calculator" style="display: block; width: 590px; height: 576px; object-fit: cover; object-position: 0% 0; border-radius: 14px">
+      </figure>
+    </div>
+
+    <div style="height: 1px; margin: 48px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 48px 0 0; width: 1086px; height: 462px">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">04</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">The Value Agent</span><span data-l="es">El Value Agent</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0 0 24px;"><span data-l="en">I’m leading the transition of our traditional ROI calculator into an agent-centric platform, 'the Value Agent.' The new workflow automates business case creation so salespeople provide the opportunity context, and the agent instantly builds tailored value models with minimal setup. By integrating AI directly into an established, high-traffic tool, we are capitalising on existing momentum to accelerate user adoption.</span><span data-l="es">Estoy liderando la transición de nuestra calculadora de ROI tradicional hacia una plataforma centrada en agentes: el Value Agent. El nuevo flujo automatiza la creación del business case, de modo que el vendedor aporta el contexto de la oportunidad y el agente construye al instante modelos de valor a medida con una configuración mínima. Al integrar la IA directamente en una herramienta ya establecida y de mucho uso, aprovechamos la inercia existente para acelerar la adopción.</span></p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Agentic ROI framework</span><span data-l="es">Framework de ROI agéntico</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en"><span style="color: color(srgb 0.0980392 0.0941176 0.137255 / 0.62);">Agentic UX</span></span><span data-l="es">Agentic UX</span></span>
+          <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Self-serve</span>
+        </div>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <img src="assets/roi-value-agent-v2.png" alt="Agentic ROI Experience — Auto Value Driver Selection" style="display: block; width: 100%; height: auto; border-radius: 14px;">
+        <figcaption style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 14px 0 0;"><span data-l="en">The Agentic ROI Experience — auto value driver selection inside the calculator. Click to enlarge.</span><span data-l="es">Agentic ROI Experience — selección automática de value drivers dentro de la calculadora. Clic para ampliar.</span></figcaption>
+      </figure>
+    </div>
+
+    
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(24px,5vw,72px); align-items: start; padding: 48px 0 0;">
+      <div>
+        <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0;"><span data-l="en">THE VALUE AGENT FUNCTIONALITY</span><span data-l="es">FUNCIONALIDAD DEL VALUE AGENT</span></p>
+        <p style="font-size: 15px; line-height: 26px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 14px 0 0;"><span data-l="en">What the agent does inside the value case.</span><span data-l="es">Lo que hace el agente dentro del value case.</span></p>
+      </div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px 40px; align-self: auto">
+        <div>
+          <h4 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 17px; line-height: 26px; letter-spacing: -.015em; margin: 0 0 8px; height: 19px"><span data-l="en">Auto value driver selection</span><span data-l="es">Selección automática de value drivers</span></h4>
+          <p style="font-size: 15.5px; line-height: 27px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0; height: 71px"><span data-l="en">Selects and recommends value drivers across clouds based on the selected opportunity.</span><span data-l="es">Selecciona y recomienda value drivers de varios clouds según la oportunidad seleccionada.</span></p>
+        </div>
+        <div>
+          <h4 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 17px; line-height: 26px; letter-spacing: -.015em; margin: 0 0 8px; height: 19px"><span data-l="en">Smart input extraction</span><span data-l="es">Extracción inteligente de inputs</span></h4>
+          <p style="font-size: 15.5px; line-height: 27px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0; height: 71px"><span data-l="en">Populates the calculator's value drivers using benchmark numbers and metadata from similar opportunities.</span><span data-l="es">Rellena los value drivers de la calculadora con benchmarks y metadatos de oportunidades similares.</span></p>
+        </div>
+        <div>
+          <h4 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 17px; line-height: 26px; letter-spacing: -.015em; margin: 0 0 8px; height: 19px"><span data-l="en">Improvement forecasting</span><span data-l="es">Previsión de mejora</span></h4>
+          <p style="font-size: 15.5px; line-height: 27px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0; height: 100px"><span data-l="en" style="width: 274px; height: 77px">Recommends a percentage improvement from the customer's current state, similar opportunities and industry benchmarks.</span><span data-l="es">Recomienda un porcentaje de mejora a partir del estado actual del cliente, oportunidades similares y benchmarks de industria.</span></p>
+        </div>
+        <div>
+          <h4 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 17px; line-height: 26px; letter-spacing: -.015em; margin: 0 0 8px; height: 19px"><span data-l="en">Input optimisation</span><span data-l="es">Optimización de inputs</span></h4>
+          <p style="font-size: 15.5px; line-height: 27px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en" style="display: inline-block">Within a full value case, recommends updates to the inputs already entered.</span><span data-l="es">Dentro de un value case completo, recomienda actualizaciones de los inputs ya introducidos.</span></p>
+        </div>
+        <div>
+          <h4 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 17px; line-height: 26px; letter-spacing: -.015em; margin: 0 0 8px; height: 16px"><span data-l="en">Executive talk track</span><span data-l="es">Talk track ejecutivo</span></h4>
+          <p style="font-size: 15.5px; line-height: 27px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">Prepares a talk track for the AE tailored to the audience, with anticipated questions and guidance on the executive readback.</span><span data-l="es">Prepara un talk track para el AE adaptado a la audiencia, con preguntas previstas y guía para el readback ejecutivo.</span></p>
+        </div>
+      </div>
+      
+    </div><div style="height: 1px; margin: 48px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+  </section>
+
+  
+
+  <section style="padding: 96px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">Wireframes</span><span data-l="es">Wireframes</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 32px; max-width: 24ch;"><span data-l="en">Structure before surface</span><span data-l="es">La estructura antes que la superficie</span></h2>
+    <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 58ch; margin: 0 0 44px;"><span data-l="en">The workflow was initially addressed with a low-fidelity prototype to meet the diverse needs and agree with the leaders on the exact direction and functionalities the business required. After extensive discussions and finalising the flow, the high-fidelity prototype was designed, following the design system guidelines that my team and I created to align all the tools my team develops to support sales teams.</span><span data-l="es">El flujo se abordó primero con un prototipo de baja fidelidad para cubrir necesidades muy diversas y acordar con los responsables la dirección exacta y las funcionalidades que pedía el negocio. Tras muchas conversaciones y una vez cerrado el flujo, se diseñó el prototipo de alta fidelidad siguiendo las guías del design system que mi equipo y yo creamos para alinear todas las herramientas con las que damos soporte a los equipos de ventas.</span></p>
+    <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+      <img src="./frame-2055251064-mtdjdtvx-s4ns.png" alt="ROI Calculator — wireframes" style="display: block; width: 100%; max-width: 1084px; height: auto; border-radius: 14px"><figcaption style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 16px 0 0; width: 1084px; height: 55px"><span data-l="en">Multicloud Wireframes — input flow, benefit drivers and results. Click to enlarge.</span><span data-l="es">Wireframes multicloud — flujo de entrada, value drivers y resultados. Clic para ampliar.<br><br></span></figcaption><img src="./frame-2055251065-mtdlhtdw-v7an.png" alt="ROI Calculator — value drivers and total annual benefit" style="display: block; width: 100%; height: auto; border-radius: 16px;"><figcaption style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 16px 0 0; width: 1084px; height: 55px"><span data-l="en">Agentic ROI experience High Fidelity Prototype. Click to enlarge.</span><span data-l="es">Prototipo de alta fidelidad de la Agentic ROI experience. Clic para ampliar.</span></figcaption>
+      
+    </figure>
+  </section>
+
+  <section style="padding: 96px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">Approach</span><span data-l="es">Enfoque</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 60px;"><span data-l="en">How the decisions were made</span><span data-l="es">Cómo se tomaron las decisiones</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px clamp(32px,5vw,72px);">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">01</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">Research with the people defending the number</span><span data-l="es">Research con los sellers que se apoya en el calculator</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">Interviews and workshops with AEs and SEs, then usability testing on the real flow. Close collaboration with the PO, PM and developers.</span><span data-l="es">Entrevistas y worksops con AEs y RVPs, seguidos de pruebas de usabilidad en el flujo real. Colaboración estrecha con el Product Owner y los desarrolladores.</span></p>
+      </div>
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">02</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">Numbers designed to be read aloud</span><span data-l="es">Cifras diseñadas para leerse en voz alta</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">With each chart and data point, I asked myself if it was intuitive and easy to understand so that an account executive could use it directly with a finance director without causing confusion.</span><span data-l="es">Con cada gráfico y cada dato me preguntaba si era intuitivo y fácil de entender, para que un Account Executive pudiera usarlo directamente con un director financiero sin generar confusión.</span></p>
+      </div>
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">03</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">Scoped to be built, quarter by quarter</span><span data-l="es">Planning para construirse, trimestre a trimestre</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">Features were scoped against engineering reality and release cycles, on the Solutions Workspace design system, and I stayed through implementation QA.</span><span data-l="es">Las funcionalidades se definieron teniendo en cuenta las capacidades de ingeniería y los ciclos de lanzamiento del sistema de diseño Solutions Workspace, y acompañé el proceso hasta la fase de control de calidad de la implementación.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 1px; margin: 96px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+  <footer style="padding: 44px 0 80px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;">
+    <a href="Home.dc.html" class="btn btn-ghost"><span data-l="en">← Back to all work</span><span data-l="es">← Volver a todo el trabajo</span></a>
+    <a href="Solutions-Workspace.dc.html" class="btn btn-primary"><span data-l="en">Next: Solutions Workspace →</span><span data-l="es">Siguiente: Solutions Workspace →</span></a>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__lcpZoom) return;
+    window.__lcpZoom = true;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:4vmin;background:rgba(22,24,38,.86);backdrop-filter:blur(6px);cursor:zoom-out;';
+    const img = document.createElement('img');
+    img.style.cssText = 'max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.45);';
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    const close = () => { overlay.style.display = 'none'; img.src = ''; };
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    document.addEventListener('click', (e) => {
+      const fig = e.target.closest && e.target.closest('[data-zoom]');
+      if (!fig) return;
+      const clicked = e.target.closest('img');
+      let src = ((clicked && fig.contains(clicked) ? clicked : fig.querySelector('img')) || {}).src;
+      if (!src) {
+        const host = fig.querySelector('image-slot') || fig.querySelector('*');
+        const root = host && host.shadowRoot;
+        src = ((root && root.querySelector('img')) || {}).src;
+      }
+      if (!src) return;
+      img.src = src;
+      overlay.style.display = 'flex';
+    });
+  }
+  renderVals() {
+    return {
+      toggleLang: () => {
+        const el = document.documentElement;
+        const next = el.dataset.lang === 'es' ? 'en' : 'es';
+        el.dataset.lang = next;
+        try { localStorage.setItem('lcp-lang', next); } catch (e) {}
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

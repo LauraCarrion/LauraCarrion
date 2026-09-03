@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/styles.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="theme-light.css">
+<script src="_ds/nocturne-b60c95ad-5eab-4701-b724-ba86c444f605/_ds_bundle.js"></script>
+<script>document.documentElement.dataset.lang = localStorage.getItem('lcp-lang') || 'en';</script>
+<style>
+html[data-lang="en"] [data-l="es"], html[data-lang="es"] [data-l="en"] { display: none !important; }
+body { margin: 0; text-wrap: pretty;
+  background:
+    radial-gradient(900px 520px at 88% -120px, var(--tint-lilac), transparent 62%),
+    radial-gradient(760px 520px at -6% 6%, var(--tint-peach), transparent 58%),
+    var(--color-bg);
+  background-attachment: fixed; }
+a { color: var(--color-accent); text-decoration: none; }
+a:hover { color: var(--color-accent-300); }
+@media (max-width: 900px) {
+  [data-two] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+
+/* Mobile & tablet only: the intro paragraph right under the H1 is set
+   larger (18px/19px) than the rest of the page's body copy (16px).
+   Match it to the body size below 1024px only; desktop keeps its larger
+   intro exactly as it is. Scoped to <header> so it can't touch the eyebrow
+   tag chips or the H1 itself — the intro <p> is the only <p> in there. */
+@media (max-width: 1024px) {
+  header p, header p * { font-size: 16px !important; }
+}
+
+/* --- responsive: neutralise fixed pixel sizes from direct edits --- */
+@media (max-width: 1024px) {
+  img, video, iframe { max-width: 100% !important; }
+  h1, h2, h3, h4, p, figcaption, h1 span, h2 span, h3 span, h4 span, p span, figcaption span {
+    width: auto !important; height: auto !important; white-space: normal !important;
+  }
+  [data-two], [data-mosaic], header, section, footer { width: auto !important; height: auto !important; max-width: 100% !important; }
+  .nav { flex-wrap: wrap; row-gap: 8px; }
+}
+/* Mobile nav sizing — identical in English and Spanish. The Spanish labels
+   run longer than their English counterparts, so these sizes/paddings are
+   tuned to fit the longer Spanish text; English, being shorter, fits the
+   same boxes with room to spare. Same font-size for both languages at every
+   width means the bar never looks mismatched when the language is toggled. */
+@media (max-width: 640px) {
+  .nav { flex-wrap: nowrap !important; row-gap: 0 !important; gap: 6px !important; padding-left: 12px !important; padding-right: 12px !important; }
+  .nav .nav-brand { font-size: 14.5px !important; white-space: nowrap !important; flex: 0 0 auto !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 11.8px !important; padding: 6px 7px !important; white-space: nowrap !important; }
+  .nav .btn { font-size: 11.8px !important; padding: 6px 9px !important; white-space: nowrap !important; }
+}
+@media (max-width: 430px) {
+  .nav { gap: 4px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .nav .nav-brand { font-size: 12.4px !important; white-space: nowrap !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 10px !important; padding: 5px 5px !important; }
+  .nav .btn { font-size: 10px !important; padding: 6px 6px !important; }
+}
+@media (max-width: 370px) {
+  .nav { gap: 3px !important; padding-left: 7px !important; padding-right: 7px !important; }
+  .nav .nav-brand { font-size: 11px !important; }
+  .nav > a:not(.btn):not(.nav-brand) { font-size: 9px !important; padding: 4px 4px !important; }
+  .nav .btn { font-size: 9px !important; padding: 5px 4px !important; }
+}
+@media (max-width: 339px) {
+  .nav > a:not(.btn):not([href^="Home"]) { display: none !important; }
+}
+
+@media (max-width: 1024px) {
+  [data-two] figure img { width: 100% !important; }
+}
+
+@media (max-width: 1024px) {
+  [data-two] > div > div[style*="width:"], [data-two] > div > div[style*="height:"] { width: auto !important; height: auto !important; }
+  image-slot, .sc-host-x, x-import { max-width: 100% !important; width: auto !important; }
+  [data-two] > * { min-width: 0 !important; }
+  figure { max-width: 100% !important; }
+}
+</style>
+</helmet>
+
+<div style="padding: 0 clamp(16px,4vw,32px);">
+  <nav class="nav" style="position: sticky; top: 0; z-index: 20;">
+    <a class="nav-brand" href="Home.dc.html" style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 600; letter-spacing: -.02em; font-size: 17px; color: var(--color-text);">Laura Carrión</a>
+    <a href="Home.dc.html"><span data-l="en">← All work</span><span data-l="es">← Todo el trabajo</span></a>
+    <button type="button" class="btn btn-ghost" onClick="{{ toggleLang }}" style="margin-left: auto;"><span data-l="en">ES</span><span data-l="es">EN</span></button>
+    <a class="btn btn-primary" href="mailto:laura.p.carrion92@gmail.com"><span data-l="en">Let's chat</span><span data-l="es">Hablemos</span></a>
+  </nav>
+</div>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+
+  <header style="padding: 96px 0 48px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px;">
+      <span class="tag tag-accent" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Research &amp; proposal</span><span data-l="es">Investigación y propuesta</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;"><span data-l="en">Qualitative research</span><span data-l="es">Investigación cualitativa</span></span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">A/B testing</span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Usability testing</span>
+      <span class="tag tag-outline" style="white-space: nowrap; flex: 0 0 auto;">Slack&nbsp; &amp; Salesforce</span>
+    </div>
+    <h1 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(38px,5.2vw,72px); line-height: 1.04; letter-spacing: -.035em; margin: 0 0 30px;">
+      <span data-l="en"><span style="display: block;">Bringing Slack</span><span style="display: block;">inside Salesforce</span></span>
+      <span data-l="es"><span style="display: block;">Llevar Slack</span><span style="display: block;">dentro de Salesforce</span></span>
+    </h1>
+    <p style="font-size: 19px; line-height: 32px; max-width: 56ch; margin: 0; color: color-mix(in srgb, var(--color-text) 72%, transparent); width: 1090px">
+      <span data-l="en" style="width: 1084px; display: inline-block; font-size: 18px; color: #605E64">The sales team was managing a conversation in Slack and a negotiation in Salesforce, suffering the consequences of having to switch between both platforms all day. I conducted research that determined the root cause of the frustration, why the Slack component wasn't being used, and subsequently designed several solutions. Through A/B testing, I obtained clear answers and provided honest, data-driven recommendations.</span>
+      <span data-l="es" style="width: 1090px; display: inline-block; font-size: 18px">Los Account Executives y VPs tenían por un lado conversaciones en Slack y a su vez los datos de las negociaciones en Salesforce, sufriendo las consecuencias de tener que alternar entre ambas plataformas a lo largo del día. Investigué la causa principal de esta frustración, por qué no se utilizaba el componente de Slack actual y luego diseñé varias soluciones. Mediante pruebas A/B, obtuve respuestas claras y proporcioné recomendaciones honestas basadas en datos que compartí con los líderes.</span>
+    </p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px 40px; padding: 0 0 48px;">
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">My role</span><span data-l="es">Mi rol</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Research lead &amp; product designer</span><span data-l="es">Lead de research y product designer</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Participants</span><span data-l="es">Participantes</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">AEs and VPs</span><span data-l="es">AEs y VPs</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Methods</span><span data-l="es">Métodos</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Interviews · A/B · Usability&nbsp;</span><span style="letter-spacing: -0.43px;">· AI tools</span><span data-l="es">Entrevistas · A/B · Usabilidad</span></p>
+    </div>
+    <div>
+      <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 48%, transparent); margin: 0 0 12px;"><span data-l="en">Status</span><span data-l="es">Estado</span></p>
+      <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 21.5px; line-height: 30px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Validated proposal</span><span data-l="es">Propuesta validada</span></p>
+    </div>
+  </div>
+
+  <figure data-zoom="" style="margin: 0 0 88px; cursor: zoom-in;">
+    <img src="assets/slack-hero.png" alt="Slack inside Salesforce — main screen of the proposal" style="display: block; width: 100%; height: auto; border-radius: 16px;">
+  </figure>
+
+  <section style="padding: 0 0 88px;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">The problem</span><span data-l="es">El problema</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 32px; width: 618px"><span data-l="en">Two platforms, one deal</span><span data-l="es" style="width: 618px; height: 63px; display: inline-block">Dos plataformas, una misma oportunidad</span></h2>
+    <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 58ch; margin: 0 0 26px;">
+      <span data-l="en">Slack and Salesforce belong to the same company, but they weren't aligned, which was causing problems for salespeople in their daily work. The opportunity record was located within the organization, but decisions about that opportunity were being discussed in a Slack channel.</span>
+      <span data-l="es">Slack y Salesforce pertenecen al mismo grupo pero no se estaban alineando y por tanto estaba causando problemas a los vendedores en su día a día. El registro de la oportunidad vivía en la Org, sin embargo, las decisiones sobre esa oportunidad se discutían en un canal de Slack.</span>
+    </p>
+    <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 58ch; margin: 0;">
+      <span data-l="en">The main objective of the brief I received was "how to integrate Slack so that Sales Executives can use the component in Sales Cloud," but it wasn't a quick question to answer. First of all, there was a lot of misinformation, with many teams working separately, unaware that other teams were studying the same case. My work enabled them all to align and arrive at a single, consistent answer. I obtained these answers after numerous conversations with Sales Executives, launching internal surveys through Slack, and connecting with the developers handling the case. This way, I ensured that the answers were a real solution and not just another proposal among all the others already mentioned.</span>
+      <span data-l="es">El objetivo principal del brief que recibí era «cómo integrar Slack para que los AEs utilicen el componente en Sales Cloud» pero no era una pregunta rápida de responder ya que primero de todo había mucha desinformación, muchos equipos trabajando por separado sin conocimiento de que otros equipos estudiaban el mismo caso. Mi trabajó permitió a todos ellos alinearse y obtener una misma respuesta para todos. Esta respuestas las obtuve tras numerosas conversaciones con los AEs, lanzar encuestas internas a través de Slack y a su vez conectar con los desarrolladores que llevaban el caso. De esta manera me aseguraba de que las respuestas eran una solución real y no una propuesta más entre todas las ya mencionadas.</span></p>
+  </section>
+</div>
+
+<section style="background: var(--tint-lilac); padding: 96px 0;">
+  <div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+    <p style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(26px,3.2vw,42px); line-height: 1.18; letter-spacing: -.03em; max-width: 34ch; margin: 0;"><span data-l="en" style="font-size: 32px">"When I'm working an Opportunity, switching to Slack and hunting through thousands of channels is incredibly tedious. Making the Slack component clearly visible right on the Opp record would save us a ton of time."</span><span data-l="es" style="width: 1090px; display: inline-block">"Cuando trabajo en una oportunidad, cambiar a Slack y buscar entre miles de canales es increíblemente tedioso. Hacer que el componente de Slack sea claramente visible directamente en el registro de la oportunidad nos ahorraría muchísimo tiempo."</span></p>
+    <p style="font-size: 16px; line-height: 28px; color: color-mix(in srgb, var(--color-text) 60%, transparent); margin: 28px 0 0;"><span data-l="en">— recurring theme across the AE and VP interviews</span><span data-l="es">— tema recurrente en las entrevistas con AEs y VPs</span></p>
+  </div>
+</section>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+  <section style="padding: 96px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">Process</span><span data-l="es">Proceso</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 60px;"><span data-l="en">Four steps, in this order</span><span data-l="es">Cuatro pasos, en este orden</span></h2>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(24px,5vw,72px); align-items: start; padding: 0 0 48px;">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">01</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Interviews with AEs and VPs</span><span data-l="es">Entrevistas con AEs y VPs</span></h3>
+      </div>
+      <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">I convened sales teams and their leadership separately: the AEs to hear the friction in their own words, and the VPs to understand what visibility they were lacking. Both groups identified the same problem from opposite ends of the spectrum: some were wasting time, others were losing signal. I conducted interviews, stakeholder workshops, and usability testing to find the final solution. I leveraged AI to reduce the wait time for results by 30%. I had lengthy discussions to gather all the information from the various Business Relationship Reports (BRRs) I received, and Gemini participated in the interviews, noting all the important points that emerged during the meetings and that couldn't be overlooked.</span><span data-l="es">Convoqué a vendedores y a su liderazgo por separado: a los AEs para escuchar la fricción en sus propias palabras, a los VPs para entender qué visibilidad les faltaba. Los dos grupos nombraron el mismo problema desde extremos opuestos: unos pierden tiempo, otros pierden señal. Realicé entrevistas, workshops con stakeholders y usability testing para hallar la solución final. Me apoyé&nbsp; en la IA para conseguir reducir un 30% del tiempo de espera para los resultados. Tuve largas conversaciones para recopilar toda la información de los diferentes BRDs que recibí y Gemini participó en las entrevistas anotando todos los puntos importantes que salieron durante los meetings y que no podían olviderse.</span></p>
+    </div>
+
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(24px,5vw,72px); align-items: start; padding: 48px 0;">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">02</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Feature prioritisation</span><span data-l="es">Priorización de features</span></h3>
+      </div>
+      <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">The synthesis became a list of the elements that the integration should include to be worthwhile and, equally important, those that it should not absorb. Not all Slack features improve with integration.</span><span data-l="es">La síntesis se convirtió en una lista de los elementos que la integración debía incluir para ser útil y, de igual importancia, de aquellos que no debía absorber. No todas las funciones de Slack mejoran con la integración.</span></p>
+    </div>
+
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(24px,5vw,72px); align-items: start; padding: 48px 0;">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">03</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0;"><span data-l="en">A/B testing the designs</span><span data-l="es">A/B testing de los diseños</span></h3>
+      </div>
+      <div>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0 0 32px;"><span data-l="en">Two design paths were created and presented to users instead of being discussed: one keeps Slack as a single dashboard, the other shares a tab with the Activity section, addressing a concern for frequent users. Developers reviewed both options in parallel, so the winning design was ready to be implemented.</span><span data-l="es">Se construyeron dos direcciones y se pusieron delante de los usuarios en lugar de discutirlas: una mantiene Slack como panel único, otra comparte pestaña con la sección de Activity, una de las preocupaciones de aquellos que la usaban muy amenudo. Los desarrolladores revisaron ambas opciones en paralelo, de modo que la dirección ganadora ya era construible.</span></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+          <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+            <img src="assets/slack-option-a.png" alt="Option A — Slack as a panel beside the record" style="display: block; width: 285px; height: 180px; object-fit: cover; object-position: 50% 0; border-radius: 10px;">
+            <figcaption style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 14px 0 0;"><span data-l="en">Option A — Slack as a panel</span><span data-l="es">Opción A — Slack como panel</span></figcaption>
+          </figure>
+          <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+            <img src="./card-3-3-mtdlded3-obbd.png" alt="Option A — Slack as a panel beside the record" style="display: block; width: 285px; height: 180px; object-fit: cover; object-position: 50% 0; border-radius: 10px;">
+            <figcaption style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 14px 0 0;"><span data-l="en">Option B — conversation in the record</span><span data-l="es">Opción B — conversación en el registro</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(24px,5vw,72px); align-items: start; padding: 48px 0 0;">
+      <div>
+        <p style="font-size: 15px; line-height: 24px; color: #6558E6; margin: 0 0 18px; font-feature-settings: 'tnum' 1;">04</p>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0;"><span data-l="en">Usability testing</span><span data-l="es">Usability testing</span></h3>
+      </div>
+      <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0;"><span data-l="en">The chosen option was presented to users again as a task-based session, not as a demonstration. It was necessary to validate whether the user would ultimately be able to find the Slack component and navigate it smoothly. We also took the opportunity to verify whether changing the "Activity" tab would cause confusion or frustration.</span><span data-l="es">La opción elegida se presentó nuevamente a los usuarios como una sesión basada en tareas, no como una demostración. Se necesitaba validar si finalmente el usuario conseguiría encontrar el componente de Slack y si sería capaz de navegar por él sin fricciones. También aporvechamos para verificar que el cambio de la pestañan "Activity" les generaría confusión y frustración.</span></p>
+    </div>
+  </section>
+
+  <section style="padding: 96px 0 0;">
+    <p style="font-size: 13px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; color: #6558E6; margin: 0 0 20px;"><span data-l="en">Outcome</span><span data-l="es">Resultado</span></p>
+    <h2 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: clamp(30px,3.8vw,50px); line-height: 1.08; letter-spacing: -.03em; margin: 0 0 32px; max-width: 24ch; width: 618px"><span data-l="en">A proposal with evidence attached</span><span data-l="es">Una propuesta con la evidencia adjunta</span></h2>
+    <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); max-width: 58ch; margin: 0;"><span data-l="en">The deliverable was not a set of screens. It was a direction that stakeholders could defend: a documented frustration, a prioritised feature set, two tested alternatives, an engineering feasibility read, and a validated flow — in that order, and in that order for a reason.</span><span data-l="es">El entregable no fue un set de pantallas. Fue una dirección que los stakeholders pueden defender: una frustración documentada, un set de features priorizado, dos alternativas testadas, una lectura de viabilidad técnica y un flujo validado. Además de recomendaciones para asegurar que el componente esté alineado conel futuro de la plataforma de Salesforce.</span></p>
+    <figure data-zoom="" style="margin: 44px 0 0; cursor: zoom-in;">
+      <img src="./a-b-mtc89uge-379l.png" alt="Prototype A/B testing — slide panel and card proposals" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+      <figcaption style="font-size: 14px; line-height: 24px; color: color-mix(in srgb, var(--color-text) 55%, transparent); margin: 14px 0 0;"><span data-l="en">A/B prototypes — Prototype A (slide panel) and Prototype B (card), with the component variants compared side by side. Click to enlarge.</span><span data-l="es">Prototipos A/B — Prototipo A (panel deslizante) y Prototipo B (card), con las variantes de componente comparadas en paralelo. Clic para ampliar.</span></figcaption>
+    </figure>
+
+    <div data-two="" style="display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 32px clamp(24px,5vw,64px); align-items: center; margin: 72px 0 0;">
+      <div>
+        <h3 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 500; font-size: 23px; line-height: 32px; letter-spacing: -.02em; margin: 0 0 22px;"><span data-l="en">Enhancing Slack / Sales Cloud integration for SF Channels components</span><span data-l="es">Mejorar la integración Slack y Sales Cloud para los componentes de SF Channels</span></h3>
+        <p style="font-size: 16px; line-height: 30px; color: color-mix(in srgb, var(--color-text) 66%, transparent); margin: 0 0 20px;"><span data-l="en">The discovery was written up as a document and shared with VPs and leadership: the research results, the A/B testing findings, and my insights and recommendations as the UX designer on the project — the version of the story a decision-maker can read without me in the room.&nbsp;Want to know how I presented it and what results I got? Open the PDF and you'll find all the details!</span><span data-l="es">El discovery se recogió en un documento compartido con VPs y liderazgo: los resultados de la investigación, los hallazgos del A/B testing y mis insights y recomendaciones como UX designer del proyecto. La versión de la historia que un decisor puede leer sin que yo esté en la sala.</span></p>
+        <a class="btn btn-primary" href="assets/Slack_Sales%20Cloud%20Integration.pdf" target="_blank" rel="noreferrer"><span data-l="en">Read the findings (PDF) →</span><span data-l="es">Ver los resultados (PDF) →</span></a>
+      </div>
+      <figure data-zoom="" style="margin: 0; cursor: zoom-in;">
+        <img src="assets/slack-findings-cover.png" alt="Findings document shared with VPs — cover" style="display: block; width: 100%; height: auto; border-radius: 12px;">
+      </figure>
+    </div>
+  </section>
+
+  <div style="height: 1px; margin: 96px 0 0; background: linear-gradient(to right, transparent, var(--color-divider) 48px calc(100% - 48px), transparent);"></div>
+
+  <footer style="padding: 44px 0 80px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between;">
+    <a href="Home.dc.html" class="btn btn-ghost"><span data-l="en">← Back to all work</span><span data-l="es">← Volver a todo el trabajo</span></a>
+    <a href="mailto:laura.p.carrion92@gmail.com" class="btn btn-primary"><span data-l="en">Let's chat</span><span data-l="es">Hablemos</span></a>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    if (window.__lcpZoom) return;
+    window.__lcpZoom = true;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:4vmin;background:rgba(22,24,38,.86);backdrop-filter:blur(6px);cursor:zoom-out;';
+    const img = document.createElement('img');
+    img.style.cssText = 'max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.45);';
+    overlay.appendChild(img);
+    document.body.appendChild(overlay);
+    const close = () => { overlay.style.display = 'none'; img.src = ''; };
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    document.addEventListener('click', (e) => {
+      const fig = e.target.closest && e.target.closest('[data-zoom]');
+      if (!fig) return;
+      let src = (fig.querySelector('img') || {}).src;
+      if (!src) {
+        const host = fig.querySelector('image-slot') || fig.querySelector('*');
+        const root = host && host.shadowRoot;
+        src = ((root && root.querySelector('img')) || {}).src;
+      }
+      if (!src) return;
+      img.src = src;
+      overlay.style.display = 'flex';
+    });
+  }
+  renderVals() {
+    return {
+      toggleLang: () => {
+        const el = document.documentElement;
+        const next = el.dataset.lang === 'es' ? 'en' : 'es';
+        el.dataset.lang = next;
+        try { localStorage.setItem('lcp-lang', next); } catch (e) {}
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
