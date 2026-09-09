@@ -35,6 +35,10 @@ a { color: var(--color-accent); text-decoration: none; }
 a:hover { color: var(--color-accent-300); }
 .work-card { transition: transform .25s ease, box-shadow .25s ease; }
 .work-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.cta-more { transition: border-color .2s ease, background .2s ease; }
+.work-card:hover .cta-more { border-color: #6558E6; background: color-mix(in srgb, #6558E6 8%, transparent); }
+.cta-more-arrow { transition: transform .25s ease; }
+.work-card:hover .cta-more-arrow { transform: translateX(4px); }
 @media (max-width: 900px) {
   [data-mosaic] { grid-template-columns: minmax(0, 1fr) !important; align-items: start !important; }
   [data-mosaic] [data-tile] { display: block !important; }
@@ -126,16 +130,17 @@ window.openCV = function (e) {
   </nav>
 </div>
 
-<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
+<div style="max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px);">
 
-  <header style="padding: 104px 0 88px; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 48px clamp(32px,6vw,80px); align-items: center;">
+  <header style="padding: 104px 0 88px; display: grid; grid-template-columns: minmax(0, 1.46fr) minmax(0, 1fr); gap: 48px clamp(32px,4.5vw,56px); align-items: center;">
     <div>
       <div style="display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 10px; border-radius: 999px; background: rgba(255,255,255,.72); border: 1px solid var(--color-divider); font-size: 13px; line-height: 16px; margin-bottom: 32px;">
         <span style="width: 7px; height: 7px; border-radius: 999px; background: rgb(63, 169, 122);"></span>
         <span style="color: color-mix(in srgb, var(--color-text) 66%, transparent);"><span data-l="en">Open to senior product design roles</span><span data-l="es">Abierta a posiciones de senior product design</span></span>
       </div>
       <h1 style="font-family: 'Space Grotesk', var(--font-heading); font-weight: 700; font-size: clamp(40px,4.8vw,64px); line-height: 1.04; letter-spacing: -.035em; margin: 0 0 26px;">
-        <span style="display: block;"><span data-l="en">Complex products. Simple experiences.</span><span data-l="es">Productos complejos. Experiencias simples.</span></span>
+        <span style="display: block; white-space: nowrap;"><span data-l="en">Complex products.</span><span data-l="es">Productos complejos.</span></span>
+        <span style="display: block; white-space: nowrap;"><span data-l="en">Simple experiences.</span><span data-l="es">Experiencias simples.</span></span>
         <span style="display: block; font-size: .58em; line-height: 1.18; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 42%, transparent);"><span data-l="en">End-to-End Product Strategy</span><span data-l="es">Estrategia de producto end-to-end</span></span>
         <span style="display: block; font-size: .58em; line-height: 1.18; white-space: nowrap; color: color-mix(in srgb, var(--color-text) 42%, transparent);"><span data-l="en">Senior Product Designer at Salesforce</span><span data-l="es">Senior Product Designer en Salesforce</span></span>
       </h1>
@@ -188,6 +193,7 @@ window.openCV = function (e) {
               <p style="font-family: var(--font-heading); font-weight: 500; font-size: 24px; line-height: 30px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">1,860</p>
               <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">exports</span><span data-l="es" style="color: #7A7E8A">exportaciones</span></p>
             </div>
+            <span class="cta-more" style="margin-left: auto; align-self: flex-end; display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid color-mix(in srgb, #6558E6 45%, transparent); color: #6558E6; font-size: 14px; font-weight: 500; white-space: nowrap;"><span><span data-l="en">Read more</span><span data-l="es">Ver el caso</span></span><svg class="cta-more-arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </div>
         </div>
       </a><a class="work-card" data-tile="" href="Solutions-Workspace.dc.html" style="grid-column: 1 / span 3; grid-row: 2; display: flex; flex-direction: column; border-radius: 26px; padding: 14px 14px 26px; background: var(--tint-lilac); color: inherit;">
@@ -218,6 +224,7 @@ window.openCV = function (e) {
               <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">1</p>
               <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">Design System</span><span data-l="es" style="color: #7A7E8A">Design System</span></p>
             </div>
+            <span class="cta-more" style="margin-left: auto; align-self: flex-end; display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid color-mix(in srgb, #6558E6 45%, transparent); color: #6558E6; font-size: 14px; font-weight: 500; white-space: nowrap;"><span><span data-l="en">Read more</span><span data-l="es">Ver el caso</span></span><svg class="cta-more-arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </div>
         </div>
       </a>
@@ -246,6 +253,7 @@ window.openCV = function (e) {
               <p style="font-family: var(--font-heading); font-weight: 500; font-size: 22px; line-height: 28px; letter-spacing: -.02em; margin: 0 0 6px; font-feature-settings: 'tnum' 1;">4</p>
               <p style="font-size: 12.5px; line-height: 18px; color: color-mix(in srgb, var(--color-text) 52%, transparent); margin: 0;"><span data-l="en">teams involved</span><span data-l="es" style="color: #7A7E8A">equipos involucrados</span></p>
             </div>
+            <span class="cta-more" style="margin-left: auto; align-self: flex-end; display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; border: 1px solid color-mix(in srgb, #6558E6 45%, transparent); color: #6558E6; font-size: 14px; font-weight: 500; white-space: nowrap;"><span><span data-l="en">Read more</span><span data-l="es">Ver el caso</span></span><svg class="cta-more-arrow" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
           </div>
         </div>
       </a>
